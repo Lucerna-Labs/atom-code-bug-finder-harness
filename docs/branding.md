@@ -11,3 +11,7 @@ A person should recognize what the app is called first, who makes it second, and
 ## Stable implementation identifiers
 
 The source checkout remains at `/home/jesse/Desktop/Projects/chaos-security-benchmark`, and the current loopback URL remains `http://127.0.0.1:8765`. Keeping those internal paths stable preserves imported project snapshots, saved configs, receipts and existing links. Historical precommit and result reports retain the terminology used when those experiments ran. New user-facing copy uses the current product name and attribution.
+
+## Ordo color reference
+
+The dark palette was taken read-only from the Ordo Studio UI at `/home/jesse/Desktop/Projects/The harness gpt-6 cant understand/ordo`, revision `aaf96e3`. `ordo-studio/src/index.css` (SHA-256 `21496bdd03b72639353d81596770ade9047d674854a6e08edcece9fb5bc94f04`) defines ink `#0a0c10`, second ink `#0e1117`, cards `#13161c` and `#181c24`, and parchment text `#f4ecd8`. `ordo-studio/static-html-css/styles.css` (SHA-256 `c1338a10d7053fb8bb91af350b09bbd57d1a5e4689cfde04dcd34b50c3dba01a`) adds gold `#f4c95d`, jade `#7fd1c5`, violet `#a99af0` and danger `#e85d5d`. Gold is the primary interface accent, jade is the secondary signal, and transparent white borders separate dark surfaces. The app and its docs use that same Ordo dark palette; no Ordo source or settings were changed.
