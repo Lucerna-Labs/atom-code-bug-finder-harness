@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Chaos Security Benchmark
+Comment=Run matched plain and chaos checks on chosen code
+Exec=/usr/bin/python3 /home/jesse/Desktop/Projects/chaos-security-benchmark/launch_gui.py
+Icon=/home/jesse/Desktop/Projects/chaos-security-benchmark/web/icon.svg
+Terminal=false
+Categories=Development;
+StartupNotify=true

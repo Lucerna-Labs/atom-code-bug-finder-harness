@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chaos Security Benchmark</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">∿</span><span>CHAOS <strong>BENCHMARK</strong></span></div>
+    <span class="local-badge">LOCAL WORKSPACE</span>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">CONTROLLED EXPLORATION</p>
+      <h1>Test a chosen program.<br><em>Keep the evidence.</em></h1>
+      <p>Run the plain and chaos arms with the same input budget. See the first verified finding, replay status, and every gate in one place.</p>
+    </section>
+
+    <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+    <section class="grid">
+      <div class="panel run-panel">
+        <div class="panel-heading"><span class="number">01</span><h2>Choose a configuration</h2></div>
+        <p class="muted">Each configuration connects one target command, one independent checker, and an input grammar.</p>
+        <label for="config-select">SAVED CONFIGURATIONS</label>
+        <select id="config-select"></select>
+        <div id="config-meta" class="meta-line"></div>
+        <div class="button-row">
+          <button id="run-button" class="primary">Start matched run <span>↗</span></button>
+          <button id="copy-button" class="secondary">Copy into editor</button>
+        </div>
+      </div>
+
+      <div class="panel status-panel">
+        <div class="panel-heading"><span class="number">02</span><h2>Current run</h2></div>
+        <div id="current-empty" class="empty">Choose a configuration and start a run.</div>
+        <div id="current-detail" hidden>
+          <div class="status-line"><span id="run-state" class="state">—</span><span id="run-id" class="mono"></span></div>
+          <p id="run-description" class="muted"></p>
+          <div class="button-row"><button id="refresh-button" class="secondary">Refresh</button><button id="cancel-button" class="danger" hidden>Stop run</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel results-panel">
+      <div class="panel-heading"><span class="number">03</span><h2>Results</h2></div>
+      <div id="results-empty" class="empty">A completed run will show its scores, gates, and saved witnesses here.</div>
+      <div id="results" hidden>
+        <div class="metrics">
+          <div class="metric"><span>PLAIN FIRST-HIT SCORE</span><strong id="score-off">—</strong></div>
+          <div class="metric"><span>CHAOS FIRST-HIT SCORE</span><strong id="score-on">—</strong></div>
+          <div class="metric"><span>SAVED WITNESSES</span><strong id="witness-count">—</strong></div>
+        </div>
+        <h3>Gates</h3><div id="gates" class="gate-list"></div>
+        <h3>First findings</h3><div id="witnesses" class="witness-list"></div>
+      </div>
+    </section>
+
+    <section class="grid lower">
+      <div class="panel">
+        <div class="panel-heading"><span class="number">04</span><h2>Recent runs</h2></div>
+        <div id="run-list" class="run-list"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-heading"><span class="number">05</span><h2>Add a configuration</h2></div>
+        <p class="muted">Paste a JSON config for your chosen program. A wrapper and checker can live in that program’s project. Copy the example to get started.</p>
+        <label for="new-id">CONFIG ID</label><input id="new-id" placeholder="my-project-check" pattern="[a-z][a-z0-9_-]*" maxlength="64">
+        <label for="config-editor">CONFIG JSON</label><textarea id="config-editor" spellcheck="false" placeholder="Copy the example or paste your config here"></textarea>
+        <div class="button-row"><button id="save-button" class="secondary">Save configuration</button></div>
+      </div>
+    </section>
+    <footer>Runs stay on this machine in <code>runs/</code>. An AI agent can use the same saved configurations through the MCP interface.</footer>
+  </main>
+</body>
+</html>

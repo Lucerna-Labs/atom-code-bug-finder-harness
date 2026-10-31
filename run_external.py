@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import signal
 import sys
 import time
 from pathlib import Path
@@ -12,6 +13,14 @@ from run_expanded import Choices
 
 HARNESS_SOURCES = ('run_external.py', 'external_protocol.py', 'external_grammar.py',
                    'run_expanded.py', 'expanded_fixtures.py')
+
+
+class RunCancelled(Exception):
+    pass
+
+
+def stop_on_signal(signum, frame):
+    raise RunCancelled('run cancelled')
 
 
 def digest(value):
@@ -170,8 +179,12 @@ def main():
 
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGTERM, stop_on_signal)
     try:
         main()
+    except RunCancelled:
+        print('external benchmark cancelled', file=sys.stderr)
+        raise SystemExit(130)
     except (ConfigError, ProtocolError, OSError, ValueError) as error:
         print(f'external benchmark stopped: {error}', file=sys.stderr)
         raise SystemExit(2)
