@@ -1,0 +1,7 @@
+# Stateful follow-up — frozen before implementation
+
+The six-class experiment completed: both arms found 6/6 classes in all five seeds, zero clean alarms; first-hit sum off116/on125, so chaos benefit FAILED. Preserve that result. The rapid saturation (all first hits within16 calls) leaves longer state transitions untested.
+
+Add two deeper fixtures with clean counterparts: (1) cached access retained after grant/read/revoke, (2) repeated refunds after a transaction is held and captured. Search whole request sequences, resetting target state per call. The oracle checks each accepted read against the current grant history and refund totals against captured value; it does not consult target internal state.
+
+Use the same two-arm generator/chaos mechanism, amplitude, five seeds and strict witness retention. Each arm runs5,000 sequences per seed per four fixtures:100,000 calls each,200,000 total. Access sequences have3–12 operations over three principals; payment sequences have8–20 operations over three transaction IDs and three amounts. Save first witnesses, full sequences and direct replays. No target exceptions; clean counterparts must accept legitimate examples, reject known violation sequences, and yield zero generated alarms. Manually labeled oracle controls precede search. Require both classes found by each arm, matched budgets and all replays. Same strict benefit gate as previous protocol, with per-family seed detection loss disallowed. Record a miss or loss without tuning. This remains synthetic known-flaw testing.
