@@ -4,6 +4,8 @@
 
 A Division of Lucerna Media
 
+**License:** [PolyForm Noncommercial License 1.0.0](LICENSE.md). The [required notice](NOTICE.md) accompanies copies of this software. The GitHub repository is private for now.
+
 **Developer docs:** Open [the built-in docs](http://127.0.0.1:8765/dev-docs) from the GUI. The eight checked-in Markdown sources under `docs/` explain the project, architecture, development steps, experiment method, portable bundles, GUI/MCP interfaces and evidence limits.
 
 **GUI and AI access:** Open **Atom Code Bug Finder Harness** from the desktop application menu, or run `python3 launch_gui.py`. The GUI is at [http://127.0.0.1:8765](http://127.0.0.1:8765). [GUI-AND-AI.md](GUI-AND-AI.md) has the MCP server command and its seven tools for AI agents.

@@ -62,6 +62,12 @@ class Handler(BaseHTTPRequestHandler):
             return self._send_file('style.css', 'text/css; charset=utf-8')
         if path == '/icon.svg':
             return self._send_file('icon.svg', 'image/svg+xml')
+        if path == '/license' or path == '/notice':
+            file = ROOT / ('LICENSE.md' if path == '/license' else 'NOTICE.md')
+            wire = file.read_bytes()
+            self._headers(200, 'text/plain; charset=utf-8', len(wire))
+            self.wfile.write(wire)
+            return
         if path == '/docs.css':
             return self._send_file('docs.css', 'text/css; charset=utf-8')
         if path == '/dev-docs' or path.startswith('/dev-docs/'):

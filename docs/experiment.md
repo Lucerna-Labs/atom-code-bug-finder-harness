@@ -4,7 +4,7 @@
 
 The off arm draws from the declared input grammar using a seeded ordinary choice. The on arm uses the same grammar, seeds and call budget, but adjusts each categorical choice's weights with a small deterministic logistic-map perturbation. The perturbations are centered so their weights sum to the plain total. The target program and checker receive ordinary JSON requests; the chaos mechanism does not rewrite either one.
 
-The runner tests labeled controls before discovery. For each seed and arm it generates `calls_per_seed` requests, obtains the target result, asks the checker whether a property was violated, and keeps the first verified witness. After both arms, it replays each saved witness through fresh processes and checks that the violation and target output hash match. A candidate that only changes output or raises a protocol error does not become a finding.
+The runner tests labeled controls before discovery. For each seed and arm it generates `calls_per_seed` requests, obtains the target result, asks the checker whether a property was violated, and keeps the first verified witness. After both arms, it replays each saved witness through fresh processes and checks that the violation and target output hash match. If no witness exists, the replay gate is `UNRUN`; this is distinct from a failed replay. A candidate that only changes output or raises a protocol error does not become a finding.
 
 ## Why a checker matters
 

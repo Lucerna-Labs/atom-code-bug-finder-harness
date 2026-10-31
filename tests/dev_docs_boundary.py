@@ -2,6 +2,7 @@
 """Check the built-in developer docs through their render and HTTP boundaries."""
 import subprocess
 import sys
+import hashlib
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -29,7 +30,12 @@ def main():
         assert announcement.startswith('Atom Code Bug Finder Harness: http://127.0.0.1:'), announcement
         base = announcement.split(': ', 1)[1]
         with urllib.request.urlopen(base+'/', timeout=3) as response:
-            assert b'href="/dev-docs"' in response.read()
+            body = response.read()
+            assert b'href="/dev-docs"' in body and b'href="/license"' in body
+        with urllib.request.urlopen(base+'/license', timeout=3) as response:
+            assert hashlib.sha256(response.read()).hexdigest() == 'c0ea4a896d2c8c394b29f9427589996db826cd501c512279ff0ed3ef48fabbe5'
+        with urllib.request.urlopen(base+'/notice', timeout=3) as response:
+            assert b'Required Notice: Copyright 2026 Lucerna Labs' in response.read()
         with urllib.request.urlopen(base+'/dev-docs', timeout=3) as response:
             assert b'Developer overview' in response.read()
         for slug, title, _ in PAGES:

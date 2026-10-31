@@ -39,6 +39,19 @@ def main():
         assert all(row['witness'] for rows in receipt['arms'].values() for row in rows)
         assert {name: sha(project / name) for name in files} == before
 
+        no_find = json.loads((EXAMPLE / 'config.json').read_text())
+        no_find['grammar'] = {'type': 'enum', 'values': [[]]}
+        no_find['controls'] = [{'request': [], 'violation': False}]
+        no_find['seeds'] = [11]
+        no_find['calls_per_seed'] = 2
+        config_path.write_text(json.dumps(no_find))
+        clean = subprocess.run(command, cwd='/', capture_output=True, text=True, timeout=10)
+        assert clean.returncode == 0, clean.stderr
+        no_find_receipt = json.loads(output.read_text())
+        assert not no_find_receipt['replays']
+        assert no_find_receipt['gates']['all_witnesses_replay_identically'] == 'UNRUN'
+        assert no_find_receipt['gates']['chaos_benefit'] == 'FAILED'
+
         (project / 'hang.py').write_text('import os,time\nfrom pathlib import Path\nPath("hang.pid").write_text(str(os.getpid()))\ntime.sleep(10)\n')
         config['target_command'] = [sys.executable, 'hang.py']
         config['timeout_seconds'] = 0.2

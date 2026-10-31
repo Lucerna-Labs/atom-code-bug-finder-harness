@@ -156,7 +156,6 @@ def main():
     gates = {name: 'MEASURED' if passed else 'FAILED' for name, passed in {
         'labeled_controls': all(row['passed'] for row in controls),
         'matched_budget': all(sum(row['calls'] for row in rows) == budget for rows in arms.values()),
-        'all_witnesses_replay_identically': bool(replays) and all(r['identical_violation'] for r in replays),
         'source_unchanged': before == after,
         'config_unchanged': config_before == config_after,
         'harness_unchanged': harness_before == harness_after,
@@ -165,6 +164,9 @@ def main():
                                    for rows in arms.values() for row in rows),
         'chaos_benefit': scores['on'] < scores['off'] and on_has_no_seed_loss,
     }.items()}
+    gates['all_witnesses_replay_identically'] = (
+        'UNRUN' if not replays else
+        'MEASURED' if all(r['identical_violation'] for r in replays) else 'FAILED')
     report = {'kind': 'ordinary_code_process_boundary', 'name': config['name'],
               'config_sha256': config_after,
               'sources_sha256': after, 'harness_sha256': harness_after,
