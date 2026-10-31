@@ -1,4 +1,15 @@
-# Edge-of-chaos security discovery simulation
+# Chaos Security Benchmark
+
+Standalone project at `/home/jesse/Desktop/Projects/chaos-security-benchmark`, with its own Git history, synthetic fixtures, experiment protocols and saved results. Requires Python 3.10 or newer with the standard-library SQLite and zlib modules; no package installation is needed.
+
+```sh
+cd /home/jesse/Desktop/Projects/chaos-security-benchmark
+python3 verify_broad.py
+```
+
+To rerun the latest benchmark, run `python3 run_broad.py` followed by `python3 verify_broad.py`. The runner replaces `broad-results.json`; the verifier replaces `broad-verification.json`. Previous committed receipts remain in Git history. Earlier suites are available through `run_demo.py`, `run_expanded.py` and `run_workflows.py`.
+
+This project exercises deliberately vulnerable synthetic targets and clean counterparts. It is not yet a scanner for arbitrary source repositories.
 
 Latest: [BROAD-REPORT.md](BROAD-REPORT.md) covers 220,000 additional calls across 11 planted flaws and 11 clean counterparts. Both arms found 10/11; the intentionally ASCII-only grammar missed the Unicode coverage probe. Run `python3 run_broad.py`, then `python3 verify_broad.py`.
 
