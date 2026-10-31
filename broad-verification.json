@@ -1,0 +1,11 @@
+{
+  "receipt_sha256": "5db324fd0e1266bf58d2b17e39d3405bf7663b1cc5a40c0e0123cc60891344c2",
+  "verifier_sha256": "850a8f38d9346ffbb41b610b3a6393137c849ea0fa7b693096fbcbbf7b6974e4",
+  "source_hashes_checked": 6,
+  "saved_witnesses_seed_reconstructed_and_replayed": 100,
+  "discovery_calls_accounted_for": 220000,
+  "controls": "passed",
+  "finite_race_enumeration": "passed",
+  "input_diversity_reconstructed": "passed",
+  "perturbation_bounds": "passed"
+}

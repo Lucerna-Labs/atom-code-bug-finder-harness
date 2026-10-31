@@ -1,5 +1,7 @@
 # Edge-of-chaos security discovery simulation
 
+Latest: [BROAD-REPORT.md](BROAD-REPORT.md) covers 220,000 additional calls across 11 planted flaws and 11 clean counterparts. Both arms found 10/11; the intentionally ASCII-only grammar missed the Unicode coverage probe. Run `python3 run_broad.py`, then `python3 verify_broad.py`.
+
 Expanded experiment: see [EXPANDED-REPORT.md](EXPANDED-REPORT.md) for eight planted flaws, eight clean counterparts, five seeds and 320,000 target calls. Run `python3 run_expanded.py` and `python3 run_workflows.py` for those suites. Both arms found all eight flaws; chaos benefit was mixed.
 
 Run with `python3 run_demo.py` (Python standard library only). The script writes `results.json` beside itself.

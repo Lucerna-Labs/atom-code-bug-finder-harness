@@ -1,0 +1,5685 @@
+{
+  "kind": "broader_synthetic_security_benchmark",
+  "seeds": [
+    211,
+    307,
+    419,
+    503,
+    607
+  ],
+  "calls_per_fixture_seed_arm": 1000,
+  "source_sha256": {
+    "run_broad.py": "6096829e75d49944b2be69a0b4f610b08f6228313ed20be48636107cb8cf1ba9",
+    "broad_targets.py": "87bb2cd161b7ab2e612fffe085f521c4e44e84ac33682a031d751983c51802d5",
+    "broad_properties.py": "88ce9719cf9d92dc6436f644feab0ab1fd9afb6084af139b743b69f4848af996",
+    "run_expanded.py": "462b1b40def943a260355c7d7920c62b8f4a6fa4eaa4381c608c4821c359afe8",
+    "expanded_fixtures.py": "84121362e23e6223f1b82544a48c3d5a4786e35ce6773ddfe1b5d73512269936",
+    "BROAD-PRECOMMIT.md": "5bf3198e9577a0fafe37f2b16f2ef055ea4157df03752785a0ad9af03d9e89f8"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "sqlite": "3.45.1",
+    "zlib": "1.3"
+  },
+  "controls": {
+    "passed": 66,
+    "total": 66,
+    "exhaustive_race": [
+      {
+        "schedule": "AABB",
+        "vulnerable_violation": false,
+        "clean_violation": false
+      },
+      {
+        "schedule": "ABAB",
+        "vulnerable_violation": true,
+        "clean_violation": false
+      },
+      {
+        "schedule": "ABBA",
+        "vulnerable_violation": true,
+        "clean_violation": false
+      },
+      {
+        "schedule": "BAAB",
+        "vulnerable_violation": true,
+        "clean_violation": false
+      },
+      {
+        "schedule": "BABA",
+        "vulnerable_violation": true,
+        "clean_violation": false
+      },
+      {
+        "schedule": "BBAA",
+        "vulnerable_violation": false,
+        "clean_violation": false
+      }
+    ]
+  },
+  "arms": {
+    "off": {
+      "runs": [
+        {
+          "seed": 211,
+          "family": "sql",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 34,
+          "nonempty_outputs": 70,
+          "first_hit": 4,
+          "witness": {
+            "request": "x' OR 1=1 --",
+            "output": [
+              1,
+              2
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "sql",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 0,
+          "nonempty_outputs": 6,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "html",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 311,
+          "nonempty_outputs": 1000,
+          "first_hit": 6,
+          "witness": {
+            "request": "<script src=x>demo</script>",
+            "output": "<p><script src=x>demo</script></p>"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "html",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "mass_assignment",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 314,
+          "nonempty_outputs": 1000,
+          "first_hit": 12,
+          "witness": {
+            "request": {
+              "name": "Bob",
+              "role": "admin"
+            },
+            "output": {
+              "name": "Bob",
+              "role": "admin"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "mass_assignment",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "secret_error",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 254,
+          "nonempty_outputs": 1000,
+          "first_hit": 9,
+          "witness": {
+            "request": {
+              "fail": true,
+              "debug": true
+            },
+            "output": {
+              "status": 500,
+              "body": "request failed: configuration token=FAKE_TEST_SECRET_7F12"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "secret_error",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "packet",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 672,
+          "nonempty_outputs": 1000,
+          "first_hit": 2,
+          "witness": {
+            "request": {
+              "declared": 65535,
+              "header_bytes": 2,
+              "body": "aaaaaaaa"
+            },
+            "output": {
+              "accepted": true,
+              "declared": 65535,
+              "body_hex": "6161616161616161"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "packet",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "decompression",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 216,
+          "nonempty_outputs": 1000,
+          "first_hit": 3,
+          "witness": {
+            "request": {
+              "count": 8192,
+              "pattern": "b",
+              "truncate": false
+            },
+            "output": {
+              "accepted": true,
+              "size": 8192
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "decompression",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "rate_limit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 921,
+          "failing_calls": 894,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "b",
+              "d",
+              "a",
+              "c",
+              "d",
+              "b",
+              "d",
+              "a",
+              "b"
+            ],
+            "output": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "rate_limit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 921,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "quota_race",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 635,
+          "nonempty_outputs": 1000,
+          "first_hit": 2,
+          "witness": {
+            "request": "ABBA",
+            "output": {
+              "spent": 2,
+              "balance": -1
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "quota_race",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "approval_edit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 1000,
+          "failing_calls": 73,
+          "nonempty_outputs": 1000,
+          "first_hit": 13,
+          "witness": {
+            "request": [
+              [
+                "approve",
+                10
+              ],
+              [
+                "execute",
+                1
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "submit",
+                10
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "edit",
+                1
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "execute",
+                100
+              ],
+              [
+                "execute",
+                10
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "edit",
+                1
+              ]
+            ],
+            "output": [
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": true,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": true,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 4
+              }
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "approval_edit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 1000,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "redirect",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 352,
+          "failing_calls": 183,
+          "nonempty_outputs": 414,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              "https://trusted.test/a",
+              "https://trusted.test.other.invalid/x"
+            ],
+            "output": "https://trusted.test.other.invalid/x"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "redirect",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 352,
+          "failing_calls": 0,
+          "nonempty_outputs": 162,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "unicode_alias",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 596,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "unicode_alias",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 596,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "sql",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 23,
+          "nonempty_outputs": 65,
+          "first_hit": 38,
+          "witness": {
+            "request": "bob' OR 1=1 --",
+            "output": [
+              1,
+              2
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "sql",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 0,
+          "nonempty_outputs": 9,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "html",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 307,
+          "nonempty_outputs": 1000,
+          "first_hit": 3,
+          "witness": {
+            "request": "<span onerror=demo()>demo</span>",
+            "output": "<p><span onerror=demo()>demo</span></p>"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "html",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "mass_assignment",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 334,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "name": "Guest",
+              "role": "admin"
+            },
+            "output": {
+              "name": "Guest",
+              "role": "admin"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "mass_assignment",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "secret_error",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 242,
+          "nonempty_outputs": 1000,
+          "first_hit": 9,
+          "witness": {
+            "request": {
+              "fail": true,
+              "debug": true
+            },
+            "output": {
+              "status": 500,
+              "body": "request failed: configuration token=FAKE_TEST_SECRET_7F12"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "secret_error",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "packet",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 681,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "declared": 2,
+              "header_bytes": 2,
+              "body": "a"
+            },
+            "output": {
+              "accepted": true,
+              "declared": 2,
+              "body_hex": "61"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "packet",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "decompression",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 206,
+          "nonempty_outputs": 1000,
+          "first_hit": 10,
+          "witness": {
+            "request": {
+              "count": 4096,
+              "pattern": "b",
+              "truncate": false
+            },
+            "output": {
+              "accepted": true,
+              "size": 4096
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "decompression",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "rate_limit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 928,
+          "failing_calls": 899,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "b",
+              "a",
+              "a",
+              "c",
+              "c",
+              "b",
+              "b",
+              "b",
+              "d",
+              "d"
+            ],
+            "output": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              false,
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "rate_limit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 928,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "quota_race",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 680,
+          "nonempty_outputs": 1000,
+          "first_hit": 3,
+          "witness": {
+            "request": "ABBA",
+            "output": {
+              "spent": 2,
+              "balance": -1
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "quota_race",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "approval_edit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 999,
+          "failing_calls": 54,
+          "nonempty_outputs": 1000,
+          "first_hit": 60,
+          "witness": {
+            "request": [
+              [
+                "execute",
+                10
+              ],
+              [
+                "submit",
+                100
+              ],
+              [
+                "approve",
+                10
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "execute",
+                10
+              ],
+              [
+                "submit",
+                1
+              ],
+              [
+                "submit",
+                10
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "submit",
+                100
+              ],
+              [
+                "approve",
+                1
+              ]
+            ],
+            "output": [
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 2
+              },
+              {
+                "executed": true,
+                "amount": 100,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 4
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 4
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 5
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 5
+              }
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "approval_edit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 999,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "redirect",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 333,
+          "failing_calls": 182,
+          "nonempty_outputs": 425,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "https://trusted.test/b",
+              "https://other.invalid/x",
+              "https://trusted.test.other.invalid/x"
+            ],
+            "output": "https://trusted.test.other.invalid/x"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "redirect",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 333,
+          "failing_calls": 0,
+          "nonempty_outputs": 185,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "unicode_alias",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 604,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "unicode_alias",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 604,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "sql",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 20,
+          "nonempty_outputs": 55,
+          "first_hit": 25,
+          "witness": {
+            "request": "x' OR 1=1 --",
+            "output": [
+              1,
+              2
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "sql",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 0,
+          "nonempty_outputs": 8,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "html",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 300,
+          "nonempty_outputs": 1000,
+          "first_hit": 3,
+          "witness": {
+            "request": "<img onload=demo()>demo</img>",
+            "output": "<p><img onload=demo()>demo</img></p>"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "html",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "mass_assignment",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 325,
+          "nonempty_outputs": 1000,
+          "first_hit": 4,
+          "witness": {
+            "request": {
+              "name": "Guest",
+              "role": "owner"
+            },
+            "output": {
+              "name": "Guest",
+              "role": "owner"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "mass_assignment",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "secret_error",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 235,
+          "nonempty_outputs": 1000,
+          "first_hit": 7,
+          "witness": {
+            "request": {
+              "fail": true,
+              "debug": true
+            },
+            "output": {
+              "status": 500,
+              "body": "request failed: configuration token=FAKE_TEST_SECRET_7F12"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "secret_error",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "packet",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 684,
+          "nonempty_outputs": 1000,
+          "first_hit": 3,
+          "witness": {
+            "request": {
+              "declared": 1024,
+              "header_bytes": 1,
+              "body": "aa"
+            },
+            "output": {
+              "accepted": true,
+              "declared": 1121,
+              "body_hex": "61"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "packet",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "decompression",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 219,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "count": 4096,
+              "pattern": "a",
+              "truncate": false
+            },
+            "output": {
+              "accepted": true,
+              "size": 4096
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "decompression",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "rate_limit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 911,
+          "failing_calls": 884,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "b",
+              "a",
+              "c",
+              "a",
+              "a",
+              "c",
+              "a",
+              "c"
+            ],
+            "output": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              false,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "rate_limit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 911,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "quota_race",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 642,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": "BAAB",
+            "output": {
+              "spent": 2,
+              "balance": -1
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "quota_race",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "approval_edit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 1000,
+          "failing_calls": 79,
+          "nonempty_outputs": 1000,
+          "first_hit": 9,
+          "witness": {
+            "request": [
+              [
+                "submit",
+                1
+              ],
+              [
+                "execute",
+                1
+              ],
+              [
+                "execute",
+                10
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "execute",
+                100
+              ],
+              [
+                "submit",
+                1
+              ],
+              [
+                "edit",
+                10
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "edit",
+                1
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "edit",
+                10
+              ]
+            ],
+            "output": [
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 2
+              },
+              {
+                "executed": true,
+                "amount": 100,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 4
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 4
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 5
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 6
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 7
+              }
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "approval_edit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 1000,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "redirect",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 354,
+          "failing_calls": 192,
+          "nonempty_outputs": 397,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              "https://trusted.test/b",
+              "https://other.invalid/x",
+              "http://127.0.0.1/x"
+            ],
+            "output": "http://127.0.0.1/x"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "redirect",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 354,
+          "failing_calls": 0,
+          "nonempty_outputs": 145,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "unicode_alias",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 580,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "unicode_alias",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 580,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "sql",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 34,
+          "nonempty_outputs": 65,
+          "first_hit": 76,
+          "witness": {
+            "request": "x' OR 1=1 --",
+            "output": [
+              1,
+              2
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "sql",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 0,
+          "nonempty_outputs": 11,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "html",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 290,
+          "nonempty_outputs": 1000,
+          "first_hit": 13,
+          "witness": {
+            "request": "<span onload=demo()>demo</span>",
+            "output": "<p><span onload=demo()>demo</span></p>"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "html",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "mass_assignment",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 352,
+          "nonempty_outputs": 1000,
+          "first_hit": 2,
+          "witness": {
+            "request": {
+              "name": "Bob",
+              "role": "owner"
+            },
+            "output": {
+              "name": "Bob",
+              "role": "owner"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "mass_assignment",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "secret_error",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 234,
+          "nonempty_outputs": 1000,
+          "first_hit": 4,
+          "witness": {
+            "request": {
+              "fail": true,
+              "debug": true
+            },
+            "output": {
+              "status": 500,
+              "body": "request failed: configuration token=FAKE_TEST_SECRET_7F12"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "secret_error",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "packet",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 697,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "declared": 255,
+              "header_bytes": 1,
+              "body": "aaaaaaaa"
+            },
+            "output": {
+              "accepted": true,
+              "declared": 97,
+              "body_hex": "61616161616161"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "packet",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "decompression",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 212,
+          "nonempty_outputs": 1000,
+          "first_hit": 13,
+          "witness": {
+            "request": {
+              "count": 1025,
+              "pattern": "b",
+              "truncate": false
+            },
+            "output": {
+              "accepted": true,
+              "size": 1025
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "decompression",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "rate_limit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 925,
+          "failing_calls": 895,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "a",
+              "d",
+              "b",
+              "c",
+              "c",
+              "d",
+              "b",
+              "c",
+              "c",
+              "c",
+              "b"
+            ],
+            "output": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              false,
+              false,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "rate_limit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 925,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "quota_race",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 642,
+          "nonempty_outputs": 1000,
+          "first_hit": 2,
+          "witness": {
+            "request": "BAAB",
+            "output": {
+              "spent": 2,
+              "balance": -1
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "quota_race",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "approval_edit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 997,
+          "failing_calls": 64,
+          "nonempty_outputs": 1000,
+          "first_hit": 4,
+          "witness": {
+            "request": [
+              [
+                "approve",
+                100
+              ],
+              [
+                "edit",
+                1
+              ],
+              [
+                "submit",
+                100
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "edit",
+                10
+              ],
+              [
+                "execute",
+                1
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "execute",
+                1
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "execute",
+                1
+              ]
+            ],
+            "output": [
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 2
+              },
+              {
+                "executed": true,
+                "amount": 10,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 2
+              },
+              {
+                "executed": true,
+                "amount": 10,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 2
+              },
+              {
+                "executed": true,
+                "amount": 10,
+                "version": 2
+              }
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "approval_edit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 997,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "redirect",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 353,
+          "failing_calls": 171,
+          "nonempty_outputs": 393,
+          "first_hit": 10,
+          "witness": {
+            "request": [
+              "https://trusted.test/b",
+              "https://other.invalid/x",
+              "https://trusted.test.other.invalid/x",
+              "http://127.0.0.1/x"
+            ],
+            "output": "http://127.0.0.1/x"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "redirect",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 353,
+          "failing_calls": 0,
+          "nonempty_outputs": 166,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "unicode_alias",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 604,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "unicode_alias",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 604,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "sql",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 30,
+          "nonempty_outputs": 53,
+          "first_hit": 4,
+          "witness": {
+            "request": "bob' OR 1=1 --",
+            "output": [
+              1,
+              2
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "sql",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 0,
+          "nonempty_outputs": 9,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "html",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 315,
+          "nonempty_outputs": 1000,
+          "first_hit": 3,
+          "witness": {
+            "request": "<span onload=demo()>demo</span>",
+            "output": "<p><span onload=demo()>demo</span></p>"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "html",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "mass_assignment",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 336,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "name": "Guest",
+              "role": "owner"
+            },
+            "output": {
+              "name": "Guest",
+              "role": "owner"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "mass_assignment",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "secret_error",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 246,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "fail": true,
+              "debug": true
+            },
+            "output": {
+              "status": 500,
+              "body": "request failed: configuration token=FAKE_TEST_SECRET_7F12"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "secret_error",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "packet",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 119,
+          "failing_calls": 678,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "declared": 1024,
+              "header_bytes": 0,
+              "body": "aaaaaaaaaaaaaaaa"
+            },
+            "output": {
+              "accepted": true,
+              "declared": 24929,
+              "body_hex": "6161616161616161616161616161"
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "packet",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 119,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "decompression",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 217,
+          "nonempty_outputs": 1000,
+          "first_hit": 4,
+          "witness": {
+            "request": {
+              "count": 1025,
+              "pattern": "a",
+              "truncate": false
+            },
+            "output": {
+              "accepted": true,
+              "size": 1025
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "decompression",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "rate_limit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 937,
+          "failing_calls": 913,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "d",
+              "a",
+              "d",
+              "c"
+            ],
+            "output": [
+              true,
+              true,
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "rate_limit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 937,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "quota_race",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 678,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": "BABA",
+            "output": {
+              "spent": 2,
+              "balance": -1
+            }
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "quota_race",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "approval_edit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 999,
+          "failing_calls": 59,
+          "nonempty_outputs": 1000,
+          "first_hit": 9,
+          "witness": {
+            "request": [
+              [
+                "edit",
+                1
+              ],
+              [
+                "submit",
+                1
+              ],
+              [
+                "edit",
+                10
+              ],
+              [
+                "submit",
+                1
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "execute",
+                1
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "submit",
+                100
+              ],
+              [
+                "edit",
+                10
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "approve",
+                10
+              ]
+            ],
+            "output": [
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 4
+              },
+              {
+                "executed": true,
+                "amount": 100,
+                "version": 4
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 4
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 5
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 6
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 6
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 6
+              }
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "approval_edit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 999,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "redirect",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 358,
+          "failing_calls": 171,
+          "nonempty_outputs": 399,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "https://trusted.test/b",
+              "https://trusted.test/b",
+              "https://other.invalid/x"
+            ],
+            "output": "https://other.invalid/x"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "redirect",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 358,
+          "failing_calls": 0,
+          "nonempty_outputs": 166,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "unicode_alias",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 605,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "unicode_alias",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 605,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        }
+      ],
+      "summary": {
+        "calls": 110000,
+        "known_flaws": 11,
+        "found": [
+          "approval_edit",
+          "decompression",
+          "html",
+          "mass_assignment",
+          "packet",
+          "quota_race",
+          "rate_limit",
+          "redirect",
+          "secret_error",
+          "sql"
+        ],
+        "missed": [
+          "unicode_alias"
+        ],
+        "clean_alarms": 0,
+        "unexpected_exceptions": 0,
+        "first_hit_sum_with_miss_penalty": 5394,
+        "by_family": {
+          "sql": {
+            "seeds_found": 5,
+            "first_hits": [
+              4,
+              38,
+              25,
+              76,
+              4
+            ],
+            "distinct_inputs_by_seed": [
+              108,
+              108,
+              108,
+              108,
+              108
+            ]
+          },
+          "html": {
+            "seeds_found": 5,
+            "first_hits": [
+              6,
+              3,
+              3,
+              13,
+              3
+            ],
+            "distinct_inputs_by_seed": [
+              23,
+              23,
+              23,
+              23,
+              23
+            ]
+          },
+          "mass_assignment": {
+            "seeds_found": 5,
+            "first_hits": [
+              12,
+              1,
+              4,
+              2,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              12,
+              12,
+              12,
+              12,
+              12
+            ]
+          },
+          "secret_error": {
+            "seeds_found": 5,
+            "first_hits": [
+              9,
+              9,
+              7,
+              4,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              4,
+              4,
+              4,
+              4,
+              4
+            ]
+          },
+          "packet": {
+            "seeds_found": 5,
+            "first_hits": [
+              2,
+              1,
+              3,
+              1,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              120,
+              120,
+              120,
+              120,
+              119
+            ]
+          },
+          "decompression": {
+            "seeds_found": 5,
+            "first_hits": [
+              3,
+              10,
+              1,
+              13,
+              4
+            ],
+            "distinct_inputs_by_seed": [
+              28,
+              28,
+              28,
+              28,
+              28
+            ]
+          },
+          "rate_limit": {
+            "seeds_found": 5,
+            "first_hits": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              921,
+              928,
+              911,
+              925,
+              937
+            ]
+          },
+          "quota_race": {
+            "seeds_found": 5,
+            "first_hits": [
+              2,
+              3,
+              1,
+              2,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              6,
+              6,
+              6,
+              6,
+              6
+            ]
+          },
+          "approval_edit": {
+            "seeds_found": 5,
+            "first_hits": [
+              13,
+              60,
+              9,
+              4,
+              9
+            ],
+            "distinct_inputs_by_seed": [
+              1000,
+              999,
+              1000,
+              997,
+              999
+            ]
+          },
+          "redirect": {
+            "seeds_found": 5,
+            "first_hits": [
+              2,
+              1,
+              2,
+              10,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              352,
+              333,
+              354,
+              353,
+              358
+            ]
+          },
+          "unicode_alias": {
+            "seeds_found": 0,
+            "first_hits": [
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "distinct_inputs_by_seed": [
+              5,
+              5,
+              5,
+              5,
+              5
+            ]
+          }
+        },
+        "by_seed_first_hit_sum": {
+          "211": 1055,
+          "307": 1128,
+          "419": 1057,
+          "503": 1127,
+          "607": 1027
+        }
+      },
+      "replays": {
+        "total": 50,
+        "identically_reproduced": 50
+      }
+    },
+    "on": {
+      "runs": [
+        {
+          "seed": 211,
+          "family": "sql",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 31,
+          "nonempty_outputs": 63,
+          "first_hit": 4,
+          "witness": {
+            "request": "x' OR 1=1 --",
+            "output": [
+              1,
+              2
+            ]
+          },
+          "errors": [],
+          "perturbations": 13000,
+          "max_weight_deviation": 0.19999998319556545,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "sql",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 0,
+          "nonempty_outputs": 5,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 13000,
+          "max_weight_deviation": 0.19999998319556545,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "html",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 298,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": "<b onerror=demo()>demo</b>",
+            "output": "<p><b onerror=demo()>demo</b></p>"
+          },
+          "errors": [],
+          "perturbations": 8090,
+          "max_weight_deviation": 0.2398969191032838,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "html",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 8090,
+          "max_weight_deviation": 0.2398969191032838,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "mass_assignment",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 321,
+          "nonempty_outputs": 1000,
+          "first_hit": 11,
+          "witness": {
+            "request": {
+              "name": "Bob",
+              "role": "admin"
+            },
+            "output": {
+              "name": "Bob",
+              "role": "admin"
+            }
+          },
+          "errors": [],
+          "perturbations": 6443,
+          "max_weight_deviation": 0.1999997437756913,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "mass_assignment",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 6443,
+          "max_weight_deviation": 0.1999997437756913,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "secret_error",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 253,
+          "nonempty_outputs": 1000,
+          "first_hit": 6,
+          "witness": {
+            "request": {
+              "fail": true,
+              "debug": true
+            },
+            "output": {
+              "status": 500,
+              "body": "request failed: configuration token=FAKE_TEST_SECRET_7F12"
+            }
+          },
+          "errors": [],
+          "perturbations": 4000,
+          "max_weight_deviation": 0.14999986477124216,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "secret_error",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 4000,
+          "max_weight_deviation": 0.14999986477124216,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "packet",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 677,
+          "nonempty_outputs": 1000,
+          "first_hit": 2,
+          "witness": {
+            "request": {
+              "declared": 65535,
+              "header_bytes": 2,
+              "body": "aaaaaaaa"
+            },
+            "output": {
+              "accepted": true,
+              "declared": 65535,
+              "body_hex": "6161616161616161"
+            }
+          },
+          "errors": [],
+          "perturbations": 16000,
+          "max_weight_deviation": 0.261393305164332,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "packet",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 16000,
+          "max_weight_deviation": 0.261393305164332,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "decompression",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 220,
+          "nonempty_outputs": 1000,
+          "first_hit": 3,
+          "witness": {
+            "request": {
+              "count": 8192,
+              "pattern": "b",
+              "truncate": false
+            },
+            "output": {
+              "accepted": true,
+              "size": 8192
+            }
+          },
+          "errors": [],
+          "perturbations": 11000,
+          "max_weight_deviation": 0.25516452477077256,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "decompression",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 11000,
+          "max_weight_deviation": 0.25516452477077256,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "rate_limit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 937,
+          "failing_calls": 904,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "b",
+              "d",
+              "a",
+              "c",
+              "d",
+              "b",
+              "d",
+              "a",
+              "b"
+            ],
+            "output": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 40316,
+          "max_weight_deviation": 0.2486254846192959,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 211,
+          "family": "rate_limit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 937,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 40316,
+          "max_weight_deviation": 0.2486254846192959,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 211,
+          "family": "quota_race",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 645,
+          "nonempty_outputs": 1000,
+          "first_hit": 2,
+          "witness": {
+            "request": "ABBA",
+            "output": {
+              "spent": 2,
+              "balance": -1
+            }
+          },
+          "errors": [],
+          "perturbations": 6000,
+          "max_weight_deviation": 0.24931961586625717,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "quota_race",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 6000,
+          "max_weight_deviation": 0.24931961586625717,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "approval_edit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 1000,
+          "failing_calls": 76,
+          "nonempty_outputs": 1000,
+          "first_hit": 13,
+          "witness": {
+            "request": [
+              [
+                "approve",
+                10
+              ],
+              [
+                "edit",
+                1
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "submit",
+                10
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "edit",
+                1
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "execute",
+                100
+              ],
+              [
+                "execute",
+                10
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "edit",
+                1
+              ]
+            ],
+            "output": [
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": true,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": true,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 4
+              }
+            ]
+          },
+          "errors": [],
+          "perturbations": 66029,
+          "max_weight_deviation": 0.25719624994392287,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 211,
+          "family": "approval_edit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 1000,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 66029,
+          "max_weight_deviation": 0.25719624994392287,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 211,
+          "family": "redirect",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 354,
+          "failing_calls": 173,
+          "nonempty_outputs": 408,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              "https://trusted.test/a",
+              "https://trusted.test.other.invalid/x"
+            ],
+            "output": "https://trusted.test.other.invalid/x"
+          },
+          "errors": [],
+          "perturbations": 16580,
+          "max_weight_deviation": 0.2399719777402174,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "redirect",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 354,
+          "failing_calls": 0,
+          "nonempty_outputs": 169,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 16580,
+          "max_weight_deviation": 0.2399719777402174,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "unicode_alias",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 613,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 5000,
+          "max_weight_deviation": 0.23997130474691897,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 211,
+          "family": "unicode_alias",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 613,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 5000,
+          "max_weight_deviation": 0.23997130474691897,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "sql",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 27,
+          "nonempty_outputs": 65,
+          "first_hit": 38,
+          "witness": {
+            "request": "bob' OR 1=1 --",
+            "output": [
+              1,
+              2
+            ]
+          },
+          "errors": [],
+          "perturbations": 13000,
+          "max_weight_deviation": 0.1999996716716077,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "sql",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 0,
+          "nonempty_outputs": 7,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 13000,
+          "max_weight_deviation": 0.1999996716716077,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "html",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 313,
+          "nonempty_outputs": 1000,
+          "first_hit": 3,
+          "witness": {
+            "request": "<span onerror=demo()>demo</span>",
+            "output": "<p><span onerror=demo()>demo</span></p>"
+          },
+          "errors": [],
+          "perturbations": 7988,
+          "max_weight_deviation": 0.23843858046709165,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "html",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 7988,
+          "max_weight_deviation": 0.23843858046709165,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "mass_assignment",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 324,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "name": "Guest",
+              "role": "admin"
+            },
+            "output": {
+              "name": "Guest",
+              "role": "admin"
+            }
+          },
+          "errors": [],
+          "perturbations": 6455,
+          "max_weight_deviation": 0.19999999844777294,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "mass_assignment",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 6455,
+          "max_weight_deviation": 0.19999999844777294,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "secret_error",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 239,
+          "nonempty_outputs": 1000,
+          "first_hit": 9,
+          "witness": {
+            "request": {
+              "fail": true,
+              "debug": true
+            },
+            "output": {
+              "status": 500,
+              "body": "request failed: configuration token=FAKE_TEST_SECRET_7F12"
+            }
+          },
+          "errors": [],
+          "perturbations": 4000,
+          "max_weight_deviation": 0.14999997996806969,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "secret_error",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 4000,
+          "max_weight_deviation": 0.14999997996806969,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "packet",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 671,
+          "nonempty_outputs": 1000,
+          "first_hit": 2,
+          "witness": {
+            "request": {
+              "declared": 0,
+              "header_bytes": 1,
+              "body": "aaaaaaaa"
+            },
+            "output": {
+              "accepted": true,
+              "declared": 97,
+              "body_hex": "61616161616161"
+            }
+          },
+          "errors": [],
+          "perturbations": 16000,
+          "max_weight_deviation": 0.2508423420287613,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "packet",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 16000,
+          "max_weight_deviation": 0.2508423420287613,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "decompression",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 209,
+          "nonempty_outputs": 1000,
+          "first_hit": 10,
+          "witness": {
+            "request": {
+              "count": 4096,
+              "pattern": "b",
+              "truncate": false
+            },
+            "output": {
+              "accepted": true,
+              "size": 4096
+            }
+          },
+          "errors": [],
+          "perturbations": 11000,
+          "max_weight_deviation": 0.2560192203745095,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "decompression",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 11000,
+          "max_weight_deviation": 0.2560192203745095,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "rate_limit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 924,
+          "failing_calls": 893,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "c",
+              "a",
+              "a",
+              "c",
+              "c",
+              "b",
+              "b",
+              "b",
+              "d",
+              "d"
+            ],
+            "output": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 40084,
+          "max_weight_deviation": 0.26859760984353587,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 307,
+          "family": "rate_limit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 924,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 40084,
+          "max_weight_deviation": 0.26859760984353587,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 307,
+          "family": "quota_race",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 674,
+          "nonempty_outputs": 1000,
+          "first_hit": 3,
+          "witness": {
+            "request": "ABBA",
+            "output": {
+              "spent": 2,
+              "balance": -1
+            }
+          },
+          "errors": [],
+          "perturbations": 6000,
+          "max_weight_deviation": 0.24970403154134546,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "quota_race",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 6000,
+          "max_weight_deviation": 0.24970403154134546,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "approval_edit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 1000,
+          "failing_calls": 58,
+          "nonempty_outputs": 1000,
+          "first_hit": 15,
+          "witness": {
+            "request": [
+              [
+                "edit",
+                1
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "execute",
+                100
+              ],
+              [
+                "submit",
+                10
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "edit",
+                1
+              ],
+              [
+                "execute",
+                1
+              ],
+              [
+                "execute",
+                10
+              ]
+            ],
+            "output": [
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 4
+              },
+              {
+                "executed": true,
+                "amount": 1,
+                "version": 4
+              },
+              {
+                "executed": true,
+                "amount": 1,
+                "version": 4
+              }
+            ]
+          },
+          "errors": [],
+          "perturbations": 64573,
+          "max_weight_deviation": 0.2564633470995856,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 307,
+          "family": "approval_edit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 1000,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 64573,
+          "max_weight_deviation": 0.2564633470995856,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 307,
+          "family": "redirect",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 334,
+          "failing_calls": 171,
+          "nonempty_outputs": 422,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "https://trusted.test/b",
+              "https://other.invalid/x",
+              "https://other.invalid/x"
+            ],
+            "output": "https://other.invalid/x"
+          },
+          "errors": [],
+          "perturbations": 16355,
+          "max_weight_deviation": 0.23995298395250453,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "redirect",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 334,
+          "failing_calls": 0,
+          "nonempty_outputs": 196,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 16355,
+          "max_weight_deviation": 0.23995298395250453,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "unicode_alias",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 603,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 5000,
+          "max_weight_deviation": 0.23960687422515203,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 307,
+          "family": "unicode_alias",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 603,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 5000,
+          "max_weight_deviation": 0.23960687422515203,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "sql",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 26,
+          "nonempty_outputs": 68,
+          "first_hit": 33,
+          "witness": {
+            "request": "bob' OR 1=1 --",
+            "output": [
+              1,
+              2
+            ]
+          },
+          "errors": [],
+          "perturbations": 13000,
+          "max_weight_deviation": 0.1999999031338291,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "sql",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 0,
+          "nonempty_outputs": 12,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 13000,
+          "max_weight_deviation": 0.1999999031338291,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "html",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 292,
+          "nonempty_outputs": 1000,
+          "first_hit": 3,
+          "witness": {
+            "request": "<img onload=demo()>demo</img>",
+            "output": "<p><img onload=demo()>demo</img></p>"
+          },
+          "errors": [],
+          "perturbations": 7934,
+          "max_weight_deviation": 0.23980251113816053,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 419,
+          "family": "html",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 7934,
+          "max_weight_deviation": 0.23980251113816053,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 419,
+          "family": "mass_assignment",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 330,
+          "nonempty_outputs": 1000,
+          "first_hit": 4,
+          "witness": {
+            "request": {
+              "name": "Guest",
+              "role": "owner"
+            },
+            "output": {
+              "name": "Guest",
+              "role": "owner"
+            }
+          },
+          "errors": [],
+          "perturbations": 6506,
+          "max_weight_deviation": 0.1999975079055556,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "mass_assignment",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 6506,
+          "max_weight_deviation": 0.1999975079055556,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "secret_error",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 226,
+          "nonempty_outputs": 1000,
+          "first_hit": 7,
+          "witness": {
+            "request": {
+              "fail": true,
+              "debug": true
+            },
+            "output": {
+              "status": 500,
+              "body": "request failed: configuration token=FAKE_TEST_SECRET_7F12"
+            }
+          },
+          "errors": [],
+          "perturbations": 4000,
+          "max_weight_deviation": 0.1499996489824853,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "secret_error",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 4000,
+          "max_weight_deviation": 0.1499996489824853,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "packet",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 681,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "declared": 1,
+              "header_bytes": 2,
+              "body": ""
+            },
+            "output": {
+              "accepted": true,
+              "declared": 1,
+              "body_hex": ""
+            }
+          },
+          "errors": [],
+          "perturbations": 16000,
+          "max_weight_deviation": 0.26011865133154255,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "packet",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 16000,
+          "max_weight_deviation": 0.26011865133154255,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "decompression",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 218,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "count": 4096,
+              "pattern": "a",
+              "truncate": false
+            },
+            "output": {
+              "accepted": true,
+              "size": 4096
+            }
+          },
+          "errors": [],
+          "perturbations": 11000,
+          "max_weight_deviation": 0.25646462149169924,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "decompression",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 11000,
+          "max_weight_deviation": 0.25646462149169924,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "rate_limit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 922,
+          "failing_calls": 885,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "b",
+              "a",
+              "c",
+              "b",
+              "a",
+              "c",
+              "a",
+              "c"
+            ],
+            "output": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 40088,
+          "max_weight_deviation": 0.2536002201502199,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 419,
+          "family": "rate_limit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 922,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 40088,
+          "max_weight_deviation": 0.2536002201502199,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 419,
+          "family": "quota_race",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 638,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": "BAAB",
+            "output": {
+              "spent": 2,
+              "balance": -1
+            }
+          },
+          "errors": [],
+          "perturbations": 6000,
+          "max_weight_deviation": 0.2499992815432317,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "quota_race",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 6000,
+          "max_weight_deviation": 0.2499992815432317,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "approval_edit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 999,
+          "failing_calls": 59,
+          "nonempty_outputs": 1000,
+          "first_hit": 9,
+          "witness": {
+            "request": [
+              [
+                "submit",
+                1
+              ],
+              [
+                "execute",
+                1
+              ],
+              [
+                "execute",
+                10
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "execute",
+                100
+              ],
+              [
+                "submit",
+                1
+              ],
+              [
+                "edit",
+                10
+              ],
+              [
+                "approve",
+                1
+              ],
+              [
+                "edit",
+                1
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "edit",
+                10
+              ]
+            ],
+            "output": [
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 2
+              },
+              {
+                "executed": true,
+                "amount": 100,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 4
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 4
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 5
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 6
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 7
+              }
+            ]
+          },
+          "errors": [],
+          "perturbations": 65203,
+          "max_weight_deviation": 0.2664887230621189,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "approval_edit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 999,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 65203,
+          "max_weight_deviation": 0.2664887230621189,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "redirect",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 359,
+          "failing_calls": 207,
+          "nonempty_outputs": 414,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              "https://trusted.test/b",
+              "https://other.invalid/x",
+              "http://127.0.0.1/x"
+            ],
+            "output": "http://127.0.0.1/x"
+          },
+          "errors": [],
+          "perturbations": 16730,
+          "max_weight_deviation": 0.2399618292793093,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "redirect",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 359,
+          "failing_calls": 0,
+          "nonempty_outputs": 147,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 16730,
+          "max_weight_deviation": 0.2399618292793093,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "unicode_alias",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 582,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 5000,
+          "max_weight_deviation": 0.23999997453184818,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 419,
+          "family": "unicode_alias",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 582,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 5000,
+          "max_weight_deviation": 0.23999997453184818,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "sql",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 30,
+          "nonempty_outputs": 62,
+          "first_hit": 76,
+          "witness": {
+            "request": "x' OR 1=1 --",
+            "output": [
+              1,
+              2
+            ]
+          },
+          "errors": [],
+          "perturbations": 13000,
+          "max_weight_deviation": 0.199999981696509,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "sql",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 0,
+          "nonempty_outputs": 12,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 13000,
+          "max_weight_deviation": 0.199999981696509,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "html",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 286,
+          "nonempty_outputs": 1000,
+          "first_hit": 6,
+          "witness": {
+            "request": "<script onload=demo()>demo</script>",
+            "output": "<p><script onload=demo()>demo</script></p>"
+          },
+          "errors": [],
+          "perturbations": 7952,
+          "max_weight_deviation": 0.23984018432570564,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "html",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 7952,
+          "max_weight_deviation": 0.23984018432570564,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "mass_assignment",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 350,
+          "nonempty_outputs": 1000,
+          "first_hit": 2,
+          "witness": {
+            "request": {
+              "name": "Bob",
+              "role": "owner"
+            },
+            "output": {
+              "name": "Bob",
+              "role": "owner"
+            }
+          },
+          "errors": [],
+          "perturbations": 6461,
+          "max_weight_deviation": 0.19999982416425333,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "mass_assignment",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 6461,
+          "max_weight_deviation": 0.19999982416425333,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "secret_error",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 232,
+          "nonempty_outputs": 1000,
+          "first_hit": 4,
+          "witness": {
+            "request": {
+              "fail": true,
+              "debug": true
+            },
+            "output": {
+              "status": 500,
+              "body": "request failed: configuration token=FAKE_TEST_SECRET_7F12"
+            }
+          },
+          "errors": [],
+          "perturbations": 4000,
+          "max_weight_deviation": 0.14999982406547252,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "secret_error",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 4000,
+          "max_weight_deviation": 0.14999982406547252,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "packet",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 705,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "declared": 255,
+              "header_bytes": 1,
+              "body": "aaaaaaaa"
+            },
+            "output": {
+              "accepted": true,
+              "declared": 97,
+              "body_hex": "61616161616161"
+            }
+          },
+          "errors": [],
+          "perturbations": 16000,
+          "max_weight_deviation": 0.25899209725133,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "packet",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 16000,
+          "max_weight_deviation": 0.25899209725133,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "decompression",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 211,
+          "nonempty_outputs": 1000,
+          "first_hit": 13,
+          "witness": {
+            "request": {
+              "count": 1025,
+              "pattern": "b",
+              "truncate": false
+            },
+            "output": {
+              "accepted": true,
+              "size": 1025
+            }
+          },
+          "errors": [],
+          "perturbations": 11000,
+          "max_weight_deviation": 0.25650783421702017,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "decompression",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 11000,
+          "max_weight_deviation": 0.25650783421702017,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "rate_limit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 927,
+          "failing_calls": 900,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "a",
+              "d",
+              "b",
+              "c",
+              "c",
+              "d",
+              "b",
+              "c",
+              "c",
+              "c",
+              "a"
+            ],
+            "output": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              false,
+              false,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 40368,
+          "max_weight_deviation": 0.2692106281413904,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 503,
+          "family": "rate_limit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 927,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 40368,
+          "max_weight_deviation": 0.2692106281413904,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 503,
+          "family": "quota_race",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 645,
+          "nonempty_outputs": 1000,
+          "first_hit": 2,
+          "witness": {
+            "request": "BAAB",
+            "output": {
+              "spent": 2,
+              "balance": -1
+            }
+          },
+          "errors": [],
+          "perturbations": 6000,
+          "max_weight_deviation": 0.2499978460239891,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "quota_race",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 6000,
+          "max_weight_deviation": 0.2499978460239891,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "approval_edit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 998,
+          "failing_calls": 68,
+          "nonempty_outputs": 1000,
+          "first_hit": 27,
+          "witness": {
+            "request": [
+              [
+                "edit",
+                100
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "edit",
+                10
+              ],
+              [
+                "execute",
+                10
+              ],
+              [
+                "submit",
+                10
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "edit",
+                1
+              ],
+              [
+                "execute",
+                1
+              ]
+            ],
+            "output": [
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 10,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 2
+              },
+              {
+                "executed": true,
+                "amount": 1,
+                "version": 2
+              }
+            ]
+          },
+          "errors": [],
+          "perturbations": 63768,
+          "max_weight_deviation": 0.26515397563046217,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 503,
+          "family": "approval_edit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 998,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 63768,
+          "max_weight_deviation": 0.26515397563046217,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 503,
+          "family": "redirect",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 343,
+          "failing_calls": 167,
+          "nonempty_outputs": 392,
+          "first_hit": 9,
+          "witness": {
+            "request": [
+              "https://trusted.test/b",
+              "https://trusted.test.other.invalid/x",
+              "https://trusted.test.other.invalid/x",
+              "https://trusted.test.other.invalid/x"
+            ],
+            "output": "https://trusted.test.other.invalid/x"
+          },
+          "errors": [],
+          "perturbations": 16495,
+          "max_weight_deviation": 0.23999727742467658,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "redirect",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 343,
+          "failing_calls": 0,
+          "nonempty_outputs": 166,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 16495,
+          "max_weight_deviation": 0.23999727742467658,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "unicode_alias",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 602,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 5000,
+          "max_weight_deviation": 0.2399896172068532,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 503,
+          "family": "unicode_alias",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 602,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 5000,
+          "max_weight_deviation": 0.2399896172068532,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "sql",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 26,
+          "nonempty_outputs": 46,
+          "first_hit": 4,
+          "witness": {
+            "request": "bob' OR 1=1 --",
+            "output": [
+              1,
+              2
+            ]
+          },
+          "errors": [],
+          "perturbations": 13000,
+          "max_weight_deviation": 0.19999951065103572,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "sql",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 108,
+          "failing_calls": 0,
+          "nonempty_outputs": 7,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 13000,
+          "max_weight_deviation": 0.19999951065103572,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "html",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 310,
+          "nonempty_outputs": 1000,
+          "first_hit": 5,
+          "witness": {
+            "request": "<b onload=demo()>demo</b>",
+            "output": "<p><b onload=demo()>demo</b></p>"
+          },
+          "errors": [],
+          "perturbations": 8072,
+          "max_weight_deviation": 0.239916508911872,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "html",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 23,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 8072,
+          "max_weight_deviation": 0.239916508911872,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "mass_assignment",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 335,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "name": "Guest",
+              "role": "owner"
+            },
+            "output": {
+              "name": "Guest",
+              "role": "owner"
+            }
+          },
+          "errors": [],
+          "perturbations": 6512,
+          "max_weight_deviation": 0.1999952860825991,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "mass_assignment",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 12,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 6512,
+          "max_weight_deviation": 0.1999952860825991,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "secret_error",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 251,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "fail": true,
+              "debug": true
+            },
+            "output": {
+              "status": 500,
+              "body": "request failed: configuration token=FAKE_TEST_SECRET_7F12"
+            }
+          },
+          "errors": [],
+          "perturbations": 4000,
+          "max_weight_deviation": 0.1499986809061672,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "secret_error",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 4,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 4000,
+          "max_weight_deviation": 0.1499986809061672,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "packet",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 679,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": {
+              "declared": 1024,
+              "header_bytes": 0,
+              "body": "aaaaaaaaaaaaaaaa"
+            },
+            "output": {
+              "accepted": true,
+              "declared": 24929,
+              "body_hex": "6161616161616161616161616161"
+            }
+          },
+          "errors": [],
+          "perturbations": 16000,
+          "max_weight_deviation": 0.26060663577373244,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "packet",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 120,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 16000,
+          "max_weight_deviation": 0.26060663577373244,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "decompression",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 220,
+          "nonempty_outputs": 1000,
+          "first_hit": 6,
+          "witness": {
+            "request": {
+              "count": 4096,
+              "pattern": "b",
+              "truncate": false
+            },
+            "output": {
+              "accepted": true,
+              "size": 4096
+            }
+          },
+          "errors": [],
+          "perturbations": 11000,
+          "max_weight_deviation": 0.2571370599437719,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "decompression",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 28,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 11000,
+          "max_weight_deviation": 0.2571370599437719,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "rate_limit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 937,
+          "failing_calls": 914,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "d",
+              "a",
+              "d",
+              "c"
+            ],
+            "output": [
+              true,
+              true,
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 40424,
+          "max_weight_deviation": 0.25379127503431764,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 607,
+          "family": "rate_limit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 937,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 40424,
+          "max_weight_deviation": 0.25379127503431764,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 607,
+          "family": "quota_race",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 677,
+          "nonempty_outputs": 1000,
+          "first_hit": 1,
+          "witness": {
+            "request": "BABA",
+            "output": {
+              "spent": 2,
+              "balance": -1
+            }
+          },
+          "errors": [],
+          "perturbations": 6000,
+          "max_weight_deviation": 0.2499629599746731,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "quota_race",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 6,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 6000,
+          "max_weight_deviation": 0.2499629599746731,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "approval_edit",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 1000,
+          "failing_calls": 71,
+          "nonempty_outputs": 1000,
+          "first_hit": 6,
+          "witness": {
+            "request": [
+              [
+                "edit",
+                1
+              ],
+              [
+                "edit",
+                1
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "execute",
+                1
+              ],
+              [
+                "approve",
+                100
+              ],
+              [
+                "submit",
+                1
+              ],
+              [
+                "approve",
+                10
+              ],
+              [
+                "edit",
+                100
+              ],
+              [
+                "edit",
+                1
+              ],
+              [
+                "execute",
+                10
+              ],
+              [
+                "edit",
+                1
+              ]
+            ],
+            "output": [
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": null,
+                "version": 0
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 1
+              },
+              {
+                "executed": false,
+                "amount": 100,
+                "version": 2
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 3
+              },
+              {
+                "executed": true,
+                "amount": 1,
+                "version": 3
+              },
+              {
+                "executed": false,
+                "amount": 1,
+                "version": 4
+              }
+            ]
+          },
+          "errors": [],
+          "perturbations": 65966,
+          "max_weight_deviation": 0.2661325888288535,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 607,
+          "family": "approval_edit",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 1000,
+          "failing_calls": 0,
+          "nonempty_outputs": 1000,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 65966,
+          "max_weight_deviation": 0.2661325888288535,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 607,
+          "family": "redirect",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 341,
+          "failing_calls": 178,
+          "nonempty_outputs": 404,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              "https://trusted.test/b",
+              "https://trusted.test/b",
+              "https://other.invalid/x"
+            ],
+            "output": "https://other.invalid/x"
+          },
+          "errors": [],
+          "perturbations": 16550,
+          "max_weight_deviation": 0.23999999995157828,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "redirect",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 341,
+          "failing_calls": 0,
+          "nonempty_outputs": 161,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 16550,
+          "max_weight_deviation": 0.23999999995157828,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "unicode_alias",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 609,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 5000,
+          "max_weight_deviation": 0.23995551304621632,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 607,
+          "family": "unicode_alias",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 5,
+          "failing_calls": 0,
+          "nonempty_outputs": 609,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 5000,
+          "max_weight_deviation": 0.23995551304621632,
+          "max_weight_sum_error": 0.0
+        }
+      ],
+      "summary": {
+        "calls": 110000,
+        "known_flaws": 11,
+        "found": [
+          "approval_edit",
+          "decompression",
+          "html",
+          "mass_assignment",
+          "packet",
+          "quota_race",
+          "rate_limit",
+          "redirect",
+          "secret_error",
+          "sql"
+        ],
+        "missed": [
+          "unicode_alias"
+        ],
+        "clean_alarms": 0,
+        "unexpected_exceptions": 0,
+        "first_hit_sum_with_miss_penalty": 5363,
+        "by_family": {
+          "sql": {
+            "seeds_found": 5,
+            "first_hits": [
+              4,
+              38,
+              33,
+              76,
+              4
+            ],
+            "distinct_inputs_by_seed": [
+              108,
+              108,
+              108,
+              108,
+              108
+            ]
+          },
+          "html": {
+            "seeds_found": 5,
+            "first_hits": [
+              1,
+              3,
+              3,
+              6,
+              5
+            ],
+            "distinct_inputs_by_seed": [
+              23,
+              23,
+              23,
+              23,
+              23
+            ]
+          },
+          "mass_assignment": {
+            "seeds_found": 5,
+            "first_hits": [
+              11,
+              1,
+              4,
+              2,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              12,
+              12,
+              12,
+              12,
+              12
+            ]
+          },
+          "secret_error": {
+            "seeds_found": 5,
+            "first_hits": [
+              6,
+              9,
+              7,
+              4,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              4,
+              4,
+              4,
+              4,
+              4
+            ]
+          },
+          "packet": {
+            "seeds_found": 5,
+            "first_hits": [
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              120,
+              120,
+              120,
+              120,
+              120
+            ]
+          },
+          "decompression": {
+            "seeds_found": 5,
+            "first_hits": [
+              3,
+              10,
+              1,
+              13,
+              6
+            ],
+            "distinct_inputs_by_seed": [
+              28,
+              28,
+              28,
+              28,
+              28
+            ]
+          },
+          "rate_limit": {
+            "seeds_found": 5,
+            "first_hits": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              937,
+              924,
+              922,
+              927,
+              937
+            ]
+          },
+          "quota_race": {
+            "seeds_found": 5,
+            "first_hits": [
+              2,
+              3,
+              1,
+              2,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              6,
+              6,
+              6,
+              6,
+              6
+            ]
+          },
+          "approval_edit": {
+            "seeds_found": 5,
+            "first_hits": [
+              13,
+              15,
+              9,
+              27,
+              6
+            ],
+            "distinct_inputs_by_seed": [
+              1000,
+              1000,
+              999,
+              998,
+              1000
+            ]
+          },
+          "redirect": {
+            "seeds_found": 5,
+            "first_hits": [
+              2,
+              1,
+              2,
+              9,
+              1
+            ],
+            "distinct_inputs_by_seed": [
+              354,
+              334,
+              359,
+              343,
+              341
+            ]
+          },
+          "unicode_alias": {
+            "seeds_found": 0,
+            "first_hits": [
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "distinct_inputs_by_seed": [
+              5,
+              5,
+              5,
+              5,
+              5
+            ]
+          }
+        },
+        "by_seed_first_hit_sum": {
+          "211": 1046,
+          "307": 1084,
+          "419": 1063,
+          "503": 1142,
+          "607": 1028
+        }
+      },
+      "replays": {
+        "total": 50,
+        "identically_reproduced": 50
+      }
+    }
+  },
+  "gates": {
+    "controls": "MEASURED",
+    "at_least_nine_reachable_flaws_each": "MEASURED",
+    "zero_clean_alarms": "MEASURED",
+    "zero_unexpected_exceptions": "MEASURED",
+    "matched_budget": "MEASURED",
+    "all_witnesses_reproduce": "MEASURED",
+    "sources_unchanged_during_run": "MEASURED",
+    "all_eleven_known_flaws_found": "FAILED",
+    "chaos_benefit": "MEASURED"
+  },
+  "elapsed_seconds": 1.9388051709975116
+}
