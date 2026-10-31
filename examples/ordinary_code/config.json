@@ -1,0 +1,21 @@
+{
+  "name": "ordinary-distinct-total",
+  "cwd": ".",
+  "target_command": ["python3", "target_jsonl.py"],
+  "checker_command": ["python3", "checker_jsonl.py"],
+  "source_paths": ["program.py", "target_jsonl.py", "checker_jsonl.py"],
+  "timeout_seconds": 2,
+  "seeds": [11, 23, 37, 41, 59],
+  "calls_per_seed": 100,
+  "grammar": {
+    "type": "array",
+    "min_length": 0,
+    "max_length": 8,
+    "items": {"type": "int", "min": 0, "max": 5}
+  },
+  "controls": [
+    {"request": [], "violation": false},
+    {"request": [1, 2], "violation": false},
+    {"request": [1, 1], "violation": true}
+  ]
+}

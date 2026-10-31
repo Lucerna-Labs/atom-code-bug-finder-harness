@@ -1,5 +1,9 @@
 # Chaos Security Benchmark
 
+The runner now accepts ordinary local code through a configurable process interface. See [EXTERNAL-CODE.md](EXTERNAL-CODE.md) for the JSON protocol, a runnable example and instructions for connecting a chosen repository.
+
+[NORMAL-CODE-RESULT.md](NORMAL-CODE-RESULT.md) records the measured ordinary-code run and external-directory integration test.
+
 Standalone project at `/home/jesse/Desktop/Projects/chaos-security-benchmark`, with its own Git history, synthetic fixtures, experiment protocols and saved results. Requires Python 3.10 or newer with the standard-library SQLite and zlib modules; no package installation is needed.
 
 ```sh

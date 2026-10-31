@@ -1,0 +1,354 @@
+{
+  "kind": "ordinary_code_process_boundary",
+  "name": "ordinary-distinct-total",
+  "config_sha256": "a916f5a3e9ffd3324e43fb007848461ba9851d35c2bdf386c83bc33a0d491b18",
+  "sources_sha256": {
+    "/home/jesse/Desktop/Projects/chaos-security-benchmark/examples/ordinary_code/program.py": "76e4f68c12f3dbc3a9bf32c24e182a0e648e28278b9bb20f7d5b99427d448c4f",
+    "/home/jesse/Desktop/Projects/chaos-security-benchmark/examples/ordinary_code/target_jsonl.py": "f8c3e8019e96444aacf88b2f51a567f8a16bd4b0b61f5a0b742b3fe990ff0a3b",
+    "/home/jesse/Desktop/Projects/chaos-security-benchmark/examples/ordinary_code/checker_jsonl.py": "570879c30351246dda341e2401510fce7f17707d151baad90fc5d4135c7a5b80"
+  },
+  "harness_sha256": {
+    "run_external.py": "4fa9138c5e725675840aaa1ccc40cb86e1d364db2cc1651c9709780fe3ca6f0f",
+    "external_protocol.py": "09abb798d23f4523ef98fcdc5ecefddaa20624a1b3e0cacd6b4a9bbe167edfde",
+    "external_grammar.py": "f6eb7875c82553bcb7620bb6d7a3acdcd35c6db1290987862b8a6dc30175dccb",
+    "run_expanded.py": "462b1b40def943a260355c7d7920c62b8f4a6fa4eaa4381c608c4821c359afe8",
+    "expanded_fixtures.py": "84121362e23e6223f1b82544a48c3d5a4786e35ce6773ddfe1b5d73512269936"
+  },
+  "seeds": [
+    11,
+    23,
+    37,
+    41,
+    59
+  ],
+  "calls_per_seed": 100,
+  "controls": [
+    {
+      "request": [],
+      "expected": false,
+      "observed": false,
+      "passed": true,
+      "result_sha256": "31f48ed33afe7e437efa2c30cbf97fbd62c2de5c0732504077377846fe64973f",
+      "reason": ""
+    },
+    {
+      "request": [
+        1,
+        2
+      ],
+      "expected": false,
+      "observed": false,
+      "passed": true,
+      "result_sha256": "9f827af5202050f264dfa05aeec4603d0fcec968de43ed7b039ce6a2d6231b08",
+      "reason": ""
+    },
+    {
+      "request": [
+        1,
+        1
+      ],
+      "expected": true,
+      "observed": true,
+      "passed": true,
+      "result_sha256": "3aefbf1f1cb03be980b8fd05c393f4cbab7b372bd54d88fdfce9f7ec32655fd9",
+      "reason": "distinct-value total differs from contract"
+    }
+  ],
+  "arms": {
+    "off": [
+      {
+        "seed": 11,
+        "calls": 100,
+        "first_hit": 6,
+        "finding_calls": 47,
+        "distinct_inputs": 81,
+        "witness": {
+          "request": [
+            3,
+            3,
+            3,
+            0,
+            2,
+            4,
+            3
+          ],
+          "result_sha256": "01dac49e3ed114f2c3e6203aab332d5171c03057163fa70c184cbb45dd71280e",
+          "reason": "distinct-value total differs from contract"
+        },
+        "perturbations": 0,
+        "max_weight_deviation": 0.0,
+        "max_weight_sum_error": 0.0
+      },
+      {
+        "seed": 23,
+        "calls": 100,
+        "first_hit": 1,
+        "finding_calls": 51,
+        "distinct_inputs": 79,
+        "witness": {
+          "request": [
+            0,
+            2,
+            1,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "result_sha256": "50d5f60d8ba70a95f6e12a886d0fe06b1562eba900574efc8066a07ab39ffb96",
+          "reason": "distinct-value total differs from contract"
+        },
+        "perturbations": 0,
+        "max_weight_deviation": 0.0,
+        "max_weight_sum_error": 0.0
+      },
+      {
+        "seed": 37,
+        "calls": 100,
+        "first_hit": 1,
+        "finding_calls": 55,
+        "distinct_inputs": 85,
+        "witness": {
+          "request": [
+            2,
+            3,
+            3,
+            1,
+            3,
+            1,
+            3,
+            4
+          ],
+          "result_sha256": "92a287a99eb77a6c8cce929e76a54ab3ed05f2754c204af5c57e8a81173b2759",
+          "reason": "distinct-value total differs from contract"
+        },
+        "perturbations": 0,
+        "max_weight_deviation": 0.0,
+        "max_weight_sum_error": 0.0
+      },
+      {
+        "seed": 41,
+        "calls": 100,
+        "first_hit": 2,
+        "finding_calls": 52,
+        "distinct_inputs": 78,
+        "witness": {
+          "request": [
+            1,
+            1,
+            5,
+            3,
+            1
+          ],
+          "result_sha256": "7f54e8e2503b67e6e282c4c1c998702972e560d78c516509f45753c4d2ce9332",
+          "reason": "distinct-value total differs from contract"
+        },
+        "perturbations": 0,
+        "max_weight_deviation": 0.0,
+        "max_weight_sum_error": 0.0
+      },
+      {
+        "seed": 59,
+        "calls": 100,
+        "first_hit": 1,
+        "finding_calls": 55,
+        "distinct_inputs": 84,
+        "witness": {
+          "request": [
+            4,
+            4,
+            1,
+            5
+          ],
+          "result_sha256": "24f2b005f38520f5cfeb9196ba083683a9e158108bbdcf539c463866583eb931",
+          "reason": "distinct-value total differs from contract"
+        },
+        "perturbations": 0,
+        "max_weight_deviation": 0.0,
+        "max_weight_sum_error": 0.0
+      }
+    ],
+    "on": [
+      {
+        "seed": 11,
+        "calls": 100,
+        "first_hit": 2,
+        "finding_calls": 55,
+        "distinct_inputs": 79,
+        "witness": {
+          "request": [
+            2,
+            5,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "result_sha256": "f133478af453cc4c404cc5e649fc223a27799d5ab624015bcfc3ef41c14c556e",
+          "reason": "distinct-value total differs from contract"
+        },
+        "perturbations": 3132,
+        "max_weight_deviation": 0.2499809906645063,
+        "max_weight_sum_error": 0.0
+      },
+      {
+        "seed": 23,
+        "calls": 100,
+        "first_hit": 1,
+        "finding_calls": 55,
+        "distinct_inputs": 80,
+        "witness": {
+          "request": [
+            0,
+            2,
+            1,
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          "result_sha256": "50d5f60d8ba70a95f6e12a886d0fe06b1562eba900574efc8066a07ab39ffb96",
+          "reason": "distinct-value total differs from contract"
+        },
+        "perturbations": 3288,
+        "max_weight_deviation": 0.25056966553706017,
+        "max_weight_sum_error": 0.0
+      },
+      {
+        "seed": 37,
+        "calls": 100,
+        "first_hit": 1,
+        "finding_calls": 54,
+        "distinct_inputs": 86,
+        "witness": {
+          "request": [
+            2,
+            3,
+            3,
+            1,
+            3,
+            2,
+            3,
+            4
+          ],
+          "result_sha256": "c183a75f61c3a650d0b0f3b0ffa589dda18f2b84746348d7888bba2608515d58",
+          "reason": "distinct-value total differs from contract"
+        },
+        "perturbations": 3342,
+        "max_weight_deviation": 0.2481626690784875,
+        "max_weight_sum_error": 0.0
+      },
+      {
+        "seed": 41,
+        "calls": 100,
+        "first_hit": 2,
+        "finding_calls": 54,
+        "distinct_inputs": 82,
+        "witness": {
+          "request": [
+            1,
+            1,
+            5,
+            3,
+            1
+          ],
+          "result_sha256": "7f54e8e2503b67e6e282c4c1c998702972e560d78c516509f45753c4d2ce9332",
+          "reason": "distinct-value total differs from contract"
+        },
+        "perturbations": 3378,
+        "max_weight_deviation": 0.24996143061321296,
+        "max_weight_sum_error": 0.0
+      },
+      {
+        "seed": 59,
+        "calls": 100,
+        "first_hit": 1,
+        "finding_calls": 49,
+        "distinct_inputs": 84,
+        "witness": {
+          "request": [
+            4,
+            4,
+            1,
+            5
+          ],
+          "result_sha256": "24f2b005f38520f5cfeb9196ba083683a9e158108bbdcf539c463866583eb931",
+          "reason": "distinct-value total differs from contract"
+        },
+        "perturbations": 3174,
+        "max_weight_deviation": 0.24991216354438306,
+        "max_weight_sum_error": 0.0
+      }
+    ]
+  },
+  "replays": [
+    {
+      "arm": "off",
+      "seed": 11,
+      "identical_violation": true
+    },
+    {
+      "arm": "off",
+      "seed": 23,
+      "identical_violation": true
+    },
+    {
+      "arm": "off",
+      "seed": 37,
+      "identical_violation": true
+    },
+    {
+      "arm": "off",
+      "seed": 41,
+      "identical_violation": true
+    },
+    {
+      "arm": "off",
+      "seed": 59,
+      "identical_violation": true
+    },
+    {
+      "arm": "on",
+      "seed": 11,
+      "identical_violation": true
+    },
+    {
+      "arm": "on",
+      "seed": 23,
+      "identical_violation": true
+    },
+    {
+      "arm": "on",
+      "seed": 37,
+      "identical_violation": true
+    },
+    {
+      "arm": "on",
+      "seed": 41,
+      "identical_violation": true
+    },
+    {
+      "arm": "on",
+      "seed": 59,
+      "identical_violation": true
+    }
+  ],
+  "scores": {
+    "off": 11,
+    "on": 7
+  },
+  "gates": {
+    "labeled_controls": "MEASURED",
+    "matched_budget": "MEASURED",
+    "all_witnesses_replay_identically": "MEASURED",
+    "source_unchanged": "MEASURED",
+    "config_unchanged": "MEASURED",
+    "harness_unchanged": "MEASURED",
+    "perturbation_bounds": "MEASURED",
+    "chaos_benefit": "MEASURED"
+  },
+  "elapsed_seconds": 0.48894829300115816
+}
