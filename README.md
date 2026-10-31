@@ -1,5 +1,7 @@
 # Edge-of-chaos security discovery simulation
 
+Expanded experiment: see [EXPANDED-REPORT.md](EXPANDED-REPORT.md) for eight planted flaws, eight clean counterparts, five seeds and320,000 target calls. Run `python3 run_expanded.py` and `python3 run_workflows.py` for those suites. Both arms found all eight flaws; chaos benefit was mixed.
+
 Run with `python3 run_demo.py` (Python standard library only). The script writes `results.json` beside itself.
 
 This standalone demo uses a deliberately vulnerable path resolver in a temporary directory. It accepts a request such as `docs/../../guide.txt` because it rejects only paths *starting* with `..`. The accepted result resolves outside its allowed root. This is the path traversal failure class described by [OWASP](https://community.owasp.org/attacks/Path_Traversal); Python's [`Path.resolve()`](https://docs.python.org/3/library/pathlib.html#pathlib.Path.resolve) removes `..` components.

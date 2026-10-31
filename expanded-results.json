@@ -1,0 +1,2353 @@
+{
+  "kind": "synthetic_known_flaw_benchmark",
+  "seeds": [
+    31,
+    47,
+    73,
+    101,
+    137
+  ],
+  "calls_per_fixture_seed_arm": 1000,
+  "oracle_and_fixture_controls": {
+    "passed": 36,
+    "total": 36
+  },
+  "arms": {
+    "off": {
+      "summary": {
+        "calls": 60000,
+        "classes_found": [
+          "expiry",
+          "headers",
+          "overflow",
+          "path",
+          "replay",
+          "tenant"
+        ],
+        "detected_seed_cases": 30,
+        "clean_alarms": 0,
+        "exceptions": 0,
+        "first_hit_sum_with_miss_penalty": 116,
+        "by_family": {
+          "path": {
+            "seeds_found": 5,
+            "first_hits": [
+              3,
+              1,
+              1,
+              4,
+              1
+            ]
+          },
+          "tenant": {
+            "seeds_found": 5,
+            "first_hits": [
+              1,
+              4,
+              5,
+              5,
+              2
+            ]
+          },
+          "overflow": {
+            "seeds_found": 5,
+            "first_hits": [
+              3,
+              2,
+              6,
+              7,
+              16
+            ]
+          },
+          "headers": {
+            "seeds_found": 5,
+            "first_hits": [
+              2,
+              5,
+              6,
+              4,
+              5
+            ]
+          },
+          "replay": {
+            "seeds_found": 5,
+            "first_hits": [
+              4,
+              5,
+              2,
+              2,
+              5
+            ]
+          },
+          "expiry": {
+            "seeds_found": 5,
+            "first_hits": [
+              4,
+              1,
+              2,
+              5,
+              3
+            ]
+          }
+        }
+      },
+      "replays": {
+        "reproduced": 30,
+        "total": 30
+      },
+      "runs": [
+        {
+          "seed": 31,
+          "family": "path",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 617,
+          "failing_calls": 341,
+          "first_hit": 3,
+          "witness": {
+            "request": "./%252e%252e/docs/%2e%2e/%2e%2e/%252e%252e/file",
+            "output": "/file"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "path",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 617,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "tenant",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 369,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              0,
+              2,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "tenant",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "overflow",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 259,
+          "first_hit": 3,
+          "witness": {
+            "request": [
+              16,
+              65536
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "overflow",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "headers",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 149,
+          "failing_calls": 514,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              "16",
+              "16",
+              "8"
+            ],
+            "output": [
+              16,
+              8
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "headers",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 149,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "replay",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 588,
+          "failing_calls": 271,
+          "first_hit": 4,
+          "witness": {
+            "request": [
+              2,
+              2,
+              4,
+              3,
+              4,
+              1
+            ],
+            "output": [
+              true,
+              true,
+              false,
+              false,
+              false,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "replay",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 588,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "expiry",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 130,
+          "first_hit": 4,
+          "witness": {
+            "request": [
+              100,
+              100,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "expiry",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "path",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 642,
+          "failing_calls": 340,
+          "first_hit": 1,
+          "witness": {
+            "request": "%252e%252e/%252e%252e/assets/./file",
+            "output": "/assets/file"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "path",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 642,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "tenant",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 359,
+          "first_hit": 4,
+          "witness": {
+            "request": [
+              3,
+              0,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "tenant",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "overflow",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 256,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              257,
+              256
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "overflow",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "headers",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 144,
+          "failing_calls": 529,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              "1",
+              "1",
+              "16"
+            ],
+            "output": [
+              1,
+              16
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "headers",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 144,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "replay",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 597,
+          "failing_calls": 272,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              4,
+              4,
+              2,
+              2
+            ],
+            "output": [
+              false,
+              false,
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "replay",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 597,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "expiry",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 125,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              100,
+              100,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "expiry",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "path",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 620,
+          "failing_calls": 313,
+          "first_hit": 1,
+          "witness": {
+            "request": "%252e%252e/../%252e%252e/assets/assets/file",
+            "output": "/assets/assets/file"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "path",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 620,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "tenant",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 352,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              1,
+              3,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "tenant",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "overflow",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 260,
+          "first_hit": 6,
+          "witness": {
+            "request": [
+              1,
+              65536
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "overflow",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "headers",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 146,
+          "failing_calls": 524,
+          "first_hit": 6,
+          "witness": {
+            "request": [
+              "16",
+              "1"
+            ],
+            "output": [
+              16,
+              1
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "headers",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 146,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "replay",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 595,
+          "failing_calls": 296,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              3,
+              0,
+              1,
+              3,
+              1,
+              3
+            ],
+            "output": [
+              false,
+              false,
+              true,
+              false,
+              true,
+              false
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "replay",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 595,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "expiry",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 128,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              100,
+              100,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "expiry",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "path",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 640,
+          "failing_calls": 382,
+          "first_hit": 4,
+          "witness": {
+            "request": "%252e%252e/docs/../../file",
+            "output": "/file"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "path",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 640,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "tenant",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 397,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              2,
+              1,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "tenant",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "overflow",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 277,
+          "first_hit": 7,
+          "witness": {
+            "request": [
+              65536,
+              65536
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "overflow",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "headers",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 149,
+          "failing_calls": 507,
+          "first_hit": 4,
+          "witness": {
+            "request": [
+              "8",
+              "0"
+            ],
+            "output": [
+              8,
+              0
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "headers",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 149,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "replay",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 595,
+          "failing_calls": 277,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              2,
+              2
+            ],
+            "output": [
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "replay",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 595,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "expiry",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 124,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              100,
+              100,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "expiry",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "path",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 639,
+          "failing_calls": 337,
+          "first_hit": 1,
+          "witness": {
+            "request": "%252e%252e/%2e%2e/assets/file",
+            "output": "/assets/file"
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "path",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 639,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "tenant",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 356,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              3,
+              1,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "tenant",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "overflow",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 259,
+          "first_hit": 16,
+          "witness": {
+            "request": [
+              65536,
+              257
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "overflow",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "headers",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 149,
+          "failing_calls": 544,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              "1",
+              "32"
+            ],
+            "output": [
+              1,
+              32
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "headers",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 149,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "replay",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 618,
+          "failing_calls": 289,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              4,
+              4,
+              1,
+              3,
+              2,
+              1
+            ],
+            "output": [
+              false,
+              false,
+              true,
+              false,
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "replay",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 618,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "expiry",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 140,
+          "first_hit": 3,
+          "witness": {
+            "request": [
+              100,
+              100,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "expiry",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 0,
+          "max_weight_deviation": 0.0,
+          "max_weight_sum_error": 0.0
+        }
+      ]
+    },
+    "on": {
+      "summary": {
+        "calls": 60000,
+        "classes_found": [
+          "expiry",
+          "headers",
+          "overflow",
+          "path",
+          "replay",
+          "tenant"
+        ],
+        "detected_seed_cases": 30,
+        "clean_alarms": 0,
+        "exceptions": 0,
+        "first_hit_sum_with_miss_penalty": 125,
+        "by_family": {
+          "path": {
+            "seeds_found": 5,
+            "first_hits": [
+              1,
+              4,
+              1,
+              1,
+              1
+            ]
+          },
+          "tenant": {
+            "seeds_found": 5,
+            "first_hits": [
+              1,
+              4,
+              4,
+              5,
+              2
+            ]
+          },
+          "overflow": {
+            "seeds_found": 5,
+            "first_hits": [
+              3,
+              2,
+              6,
+              7,
+              16
+            ]
+          },
+          "headers": {
+            "seeds_found": 5,
+            "first_hits": [
+              2,
+              5,
+              6,
+              2,
+              6
+            ]
+          },
+          "replay": {
+            "seeds_found": 5,
+            "first_hits": [
+              4,
+              5,
+              2,
+              2,
+              5
+            ]
+          },
+          "expiry": {
+            "seeds_found": 5,
+            "first_hits": [
+              4,
+              1,
+              15,
+              5,
+              3
+            ]
+          }
+        }
+      },
+      "replays": {
+        "reproduced": 30,
+        "total": 30
+      },
+      "runs": [
+        {
+          "seed": 31,
+          "family": "path",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 643,
+          "failing_calls": 336,
+          "first_hit": 1,
+          "witness": {
+            "request": "docs/%2e%2e/./%2e%2e/file",
+            "output": "/fixture/file"
+          },
+          "errors": [],
+          "perturbations": 26844,
+          "max_weight_deviation": 0.2499996202805348,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "path",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 643,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 26844,
+          "max_weight_deviation": 0.2499996202805348,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "tenant",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 374,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              0,
+              1,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 10000,
+          "max_weight_deviation": 0.22496234448830577,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "tenant",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 10000,
+          "max_weight_deviation": 0.22496234448830577,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "overflow",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 264,
+          "first_hit": 3,
+          "witness": {
+            "request": [
+              16,
+              65536
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 20000,
+          "max_weight_deviation": 0.26341280857239324,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "overflow",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 20000,
+          "max_weight_deviation": 0.26341280857239324,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "headers",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 149,
+          "failing_calls": 521,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              "16",
+              "16",
+              "8"
+            ],
+            "output": [
+              16,
+              8
+            ]
+          },
+          "errors": [],
+          "perturbations": 12795,
+          "max_weight_deviation": 0.23982335181111103,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "headers",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 149,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 12795,
+          "max_weight_deviation": 0.23982335181111103,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "replay",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 580,
+          "failing_calls": 259,
+          "first_hit": 4,
+          "witness": {
+            "request": [
+              2,
+              2,
+              4,
+              3,
+              4,
+              1
+            ],
+            "output": [
+              true,
+              true,
+              false,
+              false,
+              false,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 23215,
+          "max_weight_deviation": 0.24994626341039372,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "replay",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 580,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 23215,
+          "max_weight_deviation": 0.24994626341039372,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 31,
+          "family": "expiry",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 124,
+          "first_hit": 4,
+          "witness": {
+            "request": [
+              100,
+              100,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 8000,
+          "max_weight_deviation": 0.22488185947414419,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 31,
+          "family": "expiry",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 8000,
+          "max_weight_deviation": 0.22488185947414419,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 47,
+          "family": "path",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 667,
+          "failing_calls": 330,
+          "first_hit": 4,
+          "witness": {
+            "request": "assets/./%2e%2e/%2e%2e/assets/file",
+            "output": "/fixture/assets/file"
+          },
+          "errors": [],
+          "perturbations": 27252,
+          "max_weight_deviation": 0.24999704217156626,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "path",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 667,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 27252,
+          "max_weight_deviation": 0.24999704217156626,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "tenant",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 361,
+          "first_hit": 4,
+          "witness": {
+            "request": [
+              2,
+              0,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 10000,
+          "max_weight_deviation": 0.2249929754991813,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "tenant",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 10000,
+          "max_weight_deviation": 0.2249929754991813,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "overflow",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 254,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              257,
+              256
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 20000,
+          "max_weight_deviation": 0.2696006871363035,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "overflow",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 20000,
+          "max_weight_deviation": 0.2696006871363035,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "headers",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 144,
+          "failing_calls": 522,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              "1",
+              "1",
+              "16"
+            ],
+            "output": [
+              1,
+              16
+            ]
+          },
+          "errors": [],
+          "perturbations": 12975,
+          "max_weight_deviation": 0.23999986307733479,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "headers",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 144,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 12975,
+          "max_weight_deviation": 0.23999986307733479,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "replay",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 613,
+          "failing_calls": 283,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              4,
+              4,
+              2,
+              2
+            ],
+            "output": [
+              false,
+              false,
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 23935,
+          "max_weight_deviation": 0.24996833757287762,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "replay",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 613,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 23935,
+          "max_weight_deviation": 0.24996833757287762,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "expiry",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 113,
+          "first_hit": 1,
+          "witness": {
+            "request": [
+              100,
+              100,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 8000,
+          "max_weight_deviation": 0.22499610731496644,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 47,
+          "family": "expiry",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 8000,
+          "max_weight_deviation": 0.22499610731496644,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "path",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 613,
+          "failing_calls": 318,
+          "first_hit": 1,
+          "witness": {
+            "request": "%252e%252e/../%252e%252e/assets/assets/file",
+            "output": "/assets/assets/file"
+          },
+          "errors": [],
+          "perturbations": 26232,
+          "max_weight_deviation": 0.24999912508696553,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "path",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 613,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 26232,
+          "max_weight_deviation": 0.24999912508696553,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "tenant",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 356,
+          "first_hit": 4,
+          "witness": {
+            "request": [
+              2,
+              1,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 10000,
+          "max_weight_deviation": 0.22499995561509278,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 73,
+          "family": "tenant",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 10000,
+          "max_weight_deviation": 0.22499995561509278,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 73,
+          "family": "overflow",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 268,
+          "first_hit": 6,
+          "witness": {
+            "request": [
+              1,
+              65536
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 20000,
+          "max_weight_deviation": 0.2695298856100692,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "overflow",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 20000,
+          "max_weight_deviation": 0.2695298856100692,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "headers",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 148,
+          "failing_calls": 515,
+          "first_hit": 6,
+          "witness": {
+            "request": [
+              "32",
+              "1"
+            ],
+            "output": [
+              32,
+              1
+            ]
+          },
+          "errors": [],
+          "perturbations": 12815,
+          "max_weight_deviation": 0.23999563612067276,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "headers",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 148,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 12815,
+          "max_weight_deviation": 0.23999563612067276,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "replay",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 594,
+          "failing_calls": 292,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              3,
+              0,
+              1,
+              3,
+              1,
+              3
+            ],
+            "output": [
+              false,
+              false,
+              true,
+              false,
+              true,
+              false
+            ]
+          },
+          "errors": [],
+          "perturbations": 23580,
+          "max_weight_deviation": 0.2499525402652396,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "replay",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 594,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 23580,
+          "max_weight_deviation": 0.2499525402652396,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "expiry",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 132,
+          "first_hit": 15,
+          "witness": {
+            "request": [
+              100,
+              100,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 8000,
+          "max_weight_deviation": 0.22499406171433378,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 73,
+          "family": "expiry",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 8000,
+          "max_weight_deviation": 0.22499406171433378,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "path",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 643,
+          "failing_calls": 366,
+          "first_hit": 1,
+          "witness": {
+            "request": "assets/../%252e%252e/file",
+            "output": "/fixture/file"
+          },
+          "errors": [],
+          "perturbations": 26832,
+          "max_weight_deviation": 0.2499730367487476,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "path",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 643,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 26832,
+          "max_weight_deviation": 0.2499730367487476,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "tenant",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 399,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              2,
+              1,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 10000,
+          "max_weight_deviation": 0.22499709281438118,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 101,
+          "family": "tenant",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 10000,
+          "max_weight_deviation": 0.22499709281438118,
+          "max_weight_sum_error": 4.440892098500626e-16
+        },
+        {
+          "seed": 101,
+          "family": "overflow",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 277,
+          "first_hit": 7,
+          "witness": {
+            "request": [
+              65536,
+              65536
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 20000,
+          "max_weight_deviation": 0.26993885143935836,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "overflow",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 20000,
+          "max_weight_deviation": 0.26993885143935836,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "headers",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 149,
+          "failing_calls": 520,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              "16",
+              "0"
+            ],
+            "output": [
+              16,
+              0
+            ]
+          },
+          "errors": [],
+          "perturbations": 12710,
+          "max_weight_deviation": 0.23999377305221858,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "headers",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 149,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 12710,
+          "max_weight_deviation": 0.23999377305221858,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "replay",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 608,
+          "failing_calls": 281,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              2,
+              2
+            ],
+            "output": [
+              true,
+              true
+            ]
+          },
+          "errors": [],
+          "perturbations": 23715,
+          "max_weight_deviation": 0.24994486454468157,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "replay",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 608,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 23715,
+          "max_weight_deviation": 0.24994486454468157,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "expiry",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 124,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              100,
+              100,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 8000,
+          "max_weight_deviation": 0.22499802132043056,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 101,
+          "family": "expiry",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 8000,
+          "max_weight_deviation": 0.22499802132043056,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "path",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 657,
+          "failing_calls": 358,
+          "first_hit": 1,
+          "witness": {
+            "request": "%252e%252e/%2e%2e/assets/file",
+            "output": "/assets/file"
+          },
+          "errors": [],
+          "perturbations": 27414,
+          "max_weight_deviation": 0.24999981965988338,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "path",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 657,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 27414,
+          "max_weight_deviation": 0.24999981965988338,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "tenant",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 359,
+          "first_hit": 2,
+          "witness": {
+            "request": [
+              3,
+              1,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 10000,
+          "max_weight_deviation": 0.22497674074394025,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "tenant",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 32,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 10000,
+          "max_weight_deviation": 0.22497674074394025,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "overflow",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 265,
+          "first_hit": 16,
+          "witness": {
+            "request": [
+              65536,
+              256
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 20000,
+          "max_weight_deviation": 0.2626226843206323,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "overflow",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 100,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 20000,
+          "max_weight_deviation": 0.2626226843206323,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "headers",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 145,
+          "failing_calls": 535,
+          "first_hit": 6,
+          "witness": {
+            "request": [
+              "1",
+              "0",
+              "32"
+            ],
+            "output": [
+              1,
+              32
+            ]
+          },
+          "errors": [],
+          "perturbations": 12940,
+          "max_weight_deviation": 0.23997986833498453,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "headers",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 145,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 12940,
+          "max_weight_deviation": 0.23997986833498453,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "replay",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 587,
+          "failing_calls": 287,
+          "first_hit": 5,
+          "witness": {
+            "request": [
+              4,
+              4,
+              2,
+              3,
+              2,
+              0
+            ],
+            "output": [
+              false,
+              false,
+              true,
+              false,
+              true,
+              false
+            ]
+          },
+          "errors": [],
+          "perturbations": 23485,
+          "max_weight_deviation": 0.2499849916144159,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "replay",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 587,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 23485,
+          "max_weight_deviation": 0.2499849916144159,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "expiry",
+          "clean": false,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 137,
+          "first_hit": 3,
+          "witness": {
+            "request": [
+              100,
+              100,
+              true
+            ],
+            "output": true
+          },
+          "errors": [],
+          "perturbations": 8000,
+          "max_weight_deviation": 0.2249997058007287,
+          "max_weight_sum_error": 0.0
+        },
+        {
+          "seed": 137,
+          "family": "expiry",
+          "clean": true,
+          "calls": 1000,
+          "distinct_inputs": 16,
+          "failing_calls": 0,
+          "first_hit": null,
+          "witness": null,
+          "errors": [],
+          "perturbations": 8000,
+          "max_weight_deviation": 0.2249997058007287,
+          "max_weight_sum_error": 0.0
+        }
+      ]
+    }
+  },
+  "gates": {
+    "controls": "MEASURED",
+    "at_least_five_classes_each": "MEASURED",
+    "zero_clean_alarms": "MEASURED",
+    "all_witnesses_reproduce": "MEASURED",
+    "zero_exceptions": "MEASURED",
+    "matched_budget": "MEASURED",
+    "chaos_benefit": "FAILED"
+  },
+  "source_sha256": {
+    "run_expanded.py": "462b1b40def943a260355c7d7920c62b8f4a6fa4eaa4381c608c4821c359afe8",
+    "expanded_fixtures.py": "84121362e23e6223f1b82544a48c3d5a4786e35ce6773ddfe1b5d73512269936",
+    "EXPANDED-PRECOMMIT.md": "c4c46609c0cd9fd41f4e0d4884a78f2320f7043e029c8030818e4db1f7b834f0"
+  },
+  "elapsed_seconds": 0.651212280994514
+}

@@ -1,0 +1,3131 @@
+{
+  "kind": "synthetic_stateful_workflows",
+  "seeds": [
+    31,
+    47,
+    73,
+    101,
+    137
+  ],
+  "controls": {
+    "passed": 12,
+    "total": 12
+  },
+  "arms": {
+    "off": {
+      "runs": [
+        {
+          "seed": 31,
+          "family": "revoked_access",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 133,
+          "witness": {
+            "actions": [
+              [
+                "grant",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "read",
+                2,
+                0
+              ],
+              [
+                "grant",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "read",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "grant",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "read",
+                2,
+                0
+              ],
+              [
+                "grant",
+                2,
+                0
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 103,
+          "errors": [],
+          "distinct_inputs": 4845
+        },
+        {
+          "seed": 31,
+          "family": "revoked_access",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 4845
+        },
+        {
+          "seed": 31,
+          "family": "repeated_refund",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 15,
+          "witness": {
+            "actions": [
+              [
+                "capture",
+                0,
+                1
+              ],
+              [
+                "hold",
+                1,
+                1
+              ],
+              [
+                "cancel",
+                0,
+                4
+              ],
+              [
+                "capture",
+                1,
+                8
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "refund",
+                1,
+                8
+              ],
+              [
+                "refund",
+                1,
+                1
+              ],
+              [
+                "cancel",
+                0,
+                4
+              ],
+              [
+                "hold",
+                0,
+                8
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "cancel",
+                1,
+                8
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "capture",
+                0,
+                1
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 391,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 31,
+          "family": "repeated_refund",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 47,
+          "family": "revoked_access",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 12,
+          "witness": {
+            "actions": [
+              [
+                "grant",
+                0,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "grant",
+                1,
+                0
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 142,
+          "errors": [],
+          "distinct_inputs": 4843
+        },
+        {
+          "seed": 47,
+          "family": "revoked_access",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 4843
+        },
+        {
+          "seed": 47,
+          "family": "repeated_refund",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 28,
+          "witness": {
+            "actions": [
+              [
+                "refund",
+                2,
+                1
+              ],
+              [
+                "capture",
+                1,
+                4
+              ],
+              [
+                "hold",
+                0,
+                8
+              ],
+              [
+                "capture",
+                0,
+                4
+              ],
+              [
+                "refund",
+                2,
+                4
+              ],
+              [
+                "hold",
+                0,
+                8
+              ],
+              [
+                "refund",
+                1,
+                1
+              ],
+              [
+                "refund",
+                2,
+                8
+              ],
+              [
+                "cancel",
+                2,
+                1
+              ],
+              [
+                "cancel",
+                0,
+                1
+              ],
+              [
+                "refund",
+                0,
+                4
+              ],
+              [
+                "hold",
+                2,
+                1
+              ],
+              [
+                "refund",
+                0,
+                8
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "capture",
+                2,
+                8
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 8
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 8
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 8
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              }
+            ]
+          },
+          "failing_calls": 345,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 47,
+          "family": "repeated_refund",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 73,
+          "family": "revoked_access",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 11,
+          "witness": {
+            "actions": [
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "grant",
+                0,
+                0
+              ],
+              [
+                "grant",
+                2,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 132,
+          "errors": [],
+          "distinct_inputs": 4838
+        },
+        {
+          "seed": 73,
+          "family": "revoked_access",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 4838
+        },
+        {
+          "seed": 73,
+          "family": "repeated_refund",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 3,
+          "witness": {
+            "actions": [
+              [
+                "cancel",
+                1,
+                8
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "refund",
+                1,
+                4
+              ],
+              [
+                "cancel",
+                0,
+                1
+              ],
+              [
+                "hold",
+                2,
+                1
+              ],
+              [
+                "refund",
+                0,
+                4
+              ],
+              [
+                "hold",
+                1,
+                8
+              ],
+              [
+                "hold",
+                0,
+                8
+              ],
+              [
+                "cancel",
+                0,
+                4
+              ],
+              [
+                "refund",
+                2,
+                8
+              ],
+              [
+                "capture",
+                2,
+                1
+              ],
+              [
+                "refund",
+                2,
+                1
+              ],
+              [
+                "capture",
+                0,
+                4
+              ],
+              [
+                "refund",
+                2,
+                4
+              ],
+              [
+                "refund",
+                0,
+                1
+              ],
+              [
+                "hold",
+                2,
+                4
+              ],
+              [
+                "hold",
+                0,
+                1
+              ],
+              [
+                "capture",
+                1,
+                4
+              ],
+              [
+                "cancel",
+                2,
+                1
+              ],
+              [
+                "cancel",
+                1,
+                4
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 8
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 383,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 73,
+          "family": "repeated_refund",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 101,
+          "family": "revoked_access",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 22,
+          "witness": {
+            "actions": [
+              [
+                "grant",
+                0,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "grant",
+                1,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 119,
+          "errors": [],
+          "distinct_inputs": 4824
+        },
+        {
+          "seed": 101,
+          "family": "revoked_access",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 4824
+        },
+        {
+          "seed": 101,
+          "family": "repeated_refund",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 12,
+          "witness": {
+            "actions": [
+              [
+                "refund",
+                0,
+                4
+              ],
+              [
+                "refund",
+                0,
+                1
+              ],
+              [
+                "cancel",
+                0,
+                1
+              ],
+              [
+                "hold",
+                0,
+                1
+              ],
+              [
+                "capture",
+                0,
+                1
+              ],
+              [
+                "cancel",
+                1,
+                1
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "capture",
+                1,
+                8
+              ],
+              [
+                "cancel",
+                2,
+                4
+              ],
+              [
+                "cancel",
+                1,
+                1
+              ],
+              [
+                "capture",
+                0,
+                4
+              ],
+              [
+                "cancel",
+                2,
+                8
+              ],
+              [
+                "cancel",
+                0,
+                8
+              ],
+              [
+                "refund",
+                0,
+                8
+              ],
+              [
+                "cancel",
+                0,
+                8
+              ],
+              [
+                "refund",
+                0,
+                1
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              }
+            ]
+          },
+          "failing_calls": 356,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 101,
+          "family": "repeated_refund",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 137,
+          "family": "revoked_access",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 36,
+          "witness": {
+            "actions": [
+              [
+                "grant",
+                1,
+                0
+              ],
+              [
+                "read",
+                2,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "grant",
+                1,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 105,
+          "errors": [],
+          "distinct_inputs": 4831
+        },
+        {
+          "seed": 137,
+          "family": "revoked_access",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 4831
+        },
+        {
+          "seed": 137,
+          "family": "repeated_refund",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 14,
+          "witness": {
+            "actions": [
+              [
+                "refund",
+                1,
+                8
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "capture",
+                0,
+                8
+              ],
+              [
+                "refund",
+                2,
+                8
+              ],
+              [
+                "refund",
+                0,
+                1
+              ],
+              [
+                "refund",
+                0,
+                4
+              ],
+              [
+                "hold",
+                2,
+                1
+              ],
+              [
+                "capture",
+                0,
+                1
+              ],
+              [
+                "cancel",
+                2,
+                4
+              ],
+              [
+                "cancel",
+                1,
+                1
+              ],
+              [
+                "cancel",
+                0,
+                4
+              ],
+              [
+                "cancel",
+                0,
+                8
+              ],
+              [
+                "refund",
+                0,
+                1
+              ],
+              [
+                "hold",
+                2,
+                8
+              ],
+              [
+                "cancel",
+                0,
+                8
+              ],
+              [
+                "hold",
+                1,
+                4
+              ],
+              [
+                "refund",
+                1,
+                8
+              ],
+              [
+                "hold",
+                0,
+                1
+              ],
+              [
+                "cancel",
+                2,
+                1
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 4
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 4
+              },
+              {
+                "accepted": true,
+                "amount": 4
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 4
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 392,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 137,
+          "family": "repeated_refund",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 5000
+        }
+      ],
+      "summary": {
+        "calls": 100000,
+        "classes_found": [
+          "repeated_refund",
+          "revoked_access"
+        ],
+        "by_family": {
+          "revoked_access": {
+            "seeds_found": 5,
+            "first_hits": [
+              133,
+              12,
+              11,
+              22,
+              36
+            ]
+          },
+          "repeated_refund": {
+            "seeds_found": 5,
+            "first_hits": [
+              15,
+              28,
+              3,
+              12,
+              14
+            ]
+          }
+        },
+        "clean_alarms": 0,
+        "exceptions": 0,
+        "first_hit_sum_with_miss_penalty": 286,
+        "witnesses": 10,
+        "reproduced": 10
+      }
+    },
+    "on": {
+      "runs": [
+        {
+          "seed": 31,
+          "family": "revoked_access",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 10,
+          "witness": {
+            "actions": [
+              [
+                "grant",
+                1,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "read",
+                2,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 120,
+          "errors": [],
+          "distinct_inputs": 4845
+        },
+        {
+          "seed": 31,
+          "family": "revoked_access",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 4845
+        },
+        {
+          "seed": 31,
+          "family": "repeated_refund",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 15,
+          "witness": {
+            "actions": [
+              [
+                "capture",
+                0,
+                1
+              ],
+              [
+                "hold",
+                1,
+                1
+              ],
+              [
+                "cancel",
+                0,
+                4
+              ],
+              [
+                "capture",
+                1,
+                8
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "refund",
+                1,
+                8
+              ],
+              [
+                "refund",
+                1,
+                1
+              ],
+              [
+                "cancel",
+                0,
+                4
+              ],
+              [
+                "hold",
+                0,
+                8
+              ],
+              [
+                "hold",
+                0,
+                8
+              ],
+              [
+                "cancel",
+                1,
+                8
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "capture",
+                0,
+                1
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 367,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 31,
+          "family": "repeated_refund",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 47,
+          "family": "revoked_access",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 12,
+          "witness": {
+            "actions": [
+              [
+                "grant",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "grant",
+                0,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "grant",
+                1,
+                0
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 140,
+          "errors": [],
+          "distinct_inputs": 4825
+        },
+        {
+          "seed": 47,
+          "family": "revoked_access",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 4825
+        },
+        {
+          "seed": 47,
+          "family": "repeated_refund",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 14,
+          "witness": {
+            "actions": [
+              [
+                "hold",
+                0,
+                8
+              ],
+              [
+                "capture",
+                2,
+                4
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "hold",
+                1,
+                4
+              ],
+              [
+                "refund",
+                2,
+                1
+              ],
+              [
+                "hold",
+                1,
+                8
+              ],
+              [
+                "capture",
+                0,
+                8
+              ],
+              [
+                "refund",
+                2,
+                4
+              ],
+              [
+                "refund",
+                1,
+                1
+              ],
+              [
+                "capture",
+                1,
+                4
+              ],
+              [
+                "capture",
+                0,
+                1
+              ],
+              [
+                "hold",
+                1,
+                4
+              ],
+              [
+                "refund",
+                0,
+                4
+              ],
+              [
+                "capture",
+                1,
+                4
+              ],
+              [
+                "hold",
+                1,
+                1
+              ],
+              [
+                "hold",
+                2,
+                4
+              ],
+              [
+                "refund",
+                0,
+                8
+              ],
+              [
+                "capture",
+                2,
+                1
+              ]
+            ],
+            "events": [
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 8
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 4
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 8
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 8
+              },
+              {
+                "accepted": true,
+                "amount": 4
+              }
+            ]
+          },
+          "failing_calls": 359,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 47,
+          "family": "repeated_refund",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 73,
+          "family": "revoked_access",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 35,
+          "witness": {
+            "actions": [
+              [
+                "grant",
+                2,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "grant",
+                1,
+                0
+              ],
+              [
+                "grant",
+                0,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 105,
+          "errors": [],
+          "distinct_inputs": 4858
+        },
+        {
+          "seed": 73,
+          "family": "revoked_access",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 4858
+        },
+        {
+          "seed": 73,
+          "family": "repeated_refund",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 3,
+          "witness": {
+            "actions": [
+              [
+                "cancel",
+                1,
+                8
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "refund",
+                1,
+                4
+              ],
+              [
+                "cancel",
+                0,
+                1
+              ],
+              [
+                "hold",
+                2,
+                1
+              ],
+              [
+                "refund",
+                0,
+                4
+              ],
+              [
+                "hold",
+                1,
+                8
+              ],
+              [
+                "hold",
+                0,
+                8
+              ],
+              [
+                "cancel",
+                0,
+                4
+              ],
+              [
+                "refund",
+                2,
+                8
+              ],
+              [
+                "capture",
+                2,
+                1
+              ],
+              [
+                "refund",
+                2,
+                1
+              ],
+              [
+                "capture",
+                0,
+                4
+              ],
+              [
+                "refund",
+                2,
+                4
+              ],
+              [
+                "refund",
+                0,
+                1
+              ],
+              [
+                "hold",
+                2,
+                4
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "capture",
+                0,
+                8
+              ],
+              [
+                "cancel",
+                2,
+                1
+              ],
+              [
+                "cancel",
+                1,
+                4
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 407,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 73,
+          "family": "repeated_refund",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 101,
+          "family": "revoked_access",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 33,
+          "witness": {
+            "actions": [
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "grant",
+                0,
+                0
+              ],
+              [
+                "read",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "grant",
+                1,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "read",
+                2,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 118,
+          "errors": [],
+          "distinct_inputs": 4825
+        },
+        {
+          "seed": 101,
+          "family": "revoked_access",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 4825
+        },
+        {
+          "seed": 101,
+          "family": "repeated_refund",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 12,
+          "witness": {
+            "actions": [
+              [
+                "refund",
+                0,
+                4
+              ],
+              [
+                "refund",
+                0,
+                1
+              ],
+              [
+                "capture",
+                0,
+                1
+              ],
+              [
+                "hold",
+                0,
+                1
+              ],
+              [
+                "capture",
+                0,
+                1
+              ],
+              [
+                "capture",
+                1,
+                1
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "capture",
+                2,
+                8
+              ],
+              [
+                "cancel",
+                2,
+                4
+              ],
+              [
+                "cancel",
+                1,
+                1
+              ],
+              [
+                "capture",
+                0,
+                4
+              ],
+              [
+                "cancel",
+                2,
+                8
+              ],
+              [
+                "cancel",
+                0,
+                8
+              ],
+              [
+                "refund",
+                0,
+                8
+              ],
+              [
+                "cancel",
+                0,
+                8
+              ],
+              [
+                "refund",
+                0,
+                1
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 1
+              }
+            ]
+          },
+          "failing_calls": 344,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 101,
+          "family": "repeated_refund",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 137,
+          "family": "revoked_access",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 36,
+          "witness": {
+            "actions": [
+              [
+                "grant",
+                1,
+                0
+              ],
+              [
+                "read",
+                2,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                2,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "read",
+                0,
+                0
+              ],
+              [
+                "grant",
+                1,
+                0
+              ],
+              [
+                "read",
+                1,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ],
+              [
+                "revoke",
+                0,
+                0
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 86,
+          "errors": [],
+          "distinct_inputs": 4837
+        },
+        {
+          "seed": 137,
+          "family": "revoked_access",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 4837
+        },
+        {
+          "seed": 137,
+          "family": "repeated_refund",
+          "clean": false,
+          "calls": 5000,
+          "first_hit": 7,
+          "witness": {
+            "actions": [
+              [
+                "cancel",
+                1,
+                1
+              ],
+              [
+                "hold",
+                2,
+                4
+              ],
+              [
+                "capture",
+                2,
+                8
+              ],
+              [
+                "refund",
+                1,
+                4
+              ],
+              [
+                "refund",
+                0,
+                1
+              ],
+              [
+                "capture",
+                2,
+                4
+              ],
+              [
+                "refund",
+                2,
+                1
+              ],
+              [
+                "hold",
+                1,
+                8
+              ],
+              [
+                "refund",
+                0,
+                4
+              ],
+              [
+                "hold",
+                0,
+                4
+              ],
+              [
+                "refund",
+                0,
+                4
+              ],
+              [
+                "capture",
+                2,
+                1
+              ],
+              [
+                "capture",
+                0,
+                8
+              ],
+              [
+                "capture",
+                2,
+                4
+              ],
+              [
+                "hold",
+                1,
+                1
+              ],
+              [
+                "hold",
+                2,
+                8
+              ],
+              [
+                "hold",
+                2,
+                4
+              ],
+              [
+                "refund",
+                2,
+                1
+              ],
+              [
+                "refund",
+                1,
+                4
+              ]
+            ],
+            "events": [
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 4
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 4
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 4
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              },
+              {
+                "accepted": true,
+                "amount": 4
+              },
+              {
+                "accepted": false,
+                "amount": 0
+              }
+            ]
+          },
+          "failing_calls": 366,
+          "errors": [],
+          "distinct_inputs": 5000
+        },
+        {
+          "seed": 137,
+          "family": "repeated_refund",
+          "clean": true,
+          "calls": 5000,
+          "first_hit": null,
+          "witness": null,
+          "failing_calls": 0,
+          "errors": [],
+          "distinct_inputs": 5000
+        }
+      ],
+      "summary": {
+        "calls": 100000,
+        "classes_found": [
+          "repeated_refund",
+          "revoked_access"
+        ],
+        "by_family": {
+          "revoked_access": {
+            "seeds_found": 5,
+            "first_hits": [
+              10,
+              12,
+              35,
+              33,
+              36
+            ]
+          },
+          "repeated_refund": {
+            "seeds_found": 5,
+            "first_hits": [
+              15,
+              14,
+              3,
+              12,
+              7
+            ]
+          }
+        },
+        "clean_alarms": 0,
+        "exceptions": 0,
+        "first_hit_sum_with_miss_penalty": 177,
+        "witnesses": 10,
+        "reproduced": 10
+      }
+    }
+  },
+  "gates": {
+    "controls": "MEASURED",
+    "both_classes_each": "MEASURED",
+    "zero_clean_alarms": "MEASURED",
+    "zero_exceptions": "MEASURED",
+    "matched_budget": "MEASURED",
+    "all_reproduce": "MEASURED",
+    "chaos_benefit": "MEASURED"
+  },
+  "source_sha256": {
+    "run_workflows.py": "f870e461555b3bd540547ab70ed7c44216be29a4a7aeb68a48958522354a33b6",
+    "run_expanded.py": "462b1b40def943a260355c7d7920c62b8f4a6fa4eaa4381c608c4821c359afe8",
+    "WORKFLOW-PRECOMMIT.md": "c780c3f4eba1c75d284bbee6c6ee6f34b86bd011809c69976bd242d1b4f71055"
+  },
+  "elapsed_seconds": 6.791017186988029
+}
