@@ -9,6 +9,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 from job_service import JobService, PROJECTS, ROOT
 from portable_projects import MAX_ARCHIVE
+from dev_docs import render as render_dev_doc
 
 WEB = ROOT / 'web'
 
@@ -60,6 +61,17 @@ class Handler(BaseHTTPRequestHandler):
             return self._send_file('style.css', 'text/css; charset=utf-8')
         if path == '/icon.svg':
             return self._send_file('icon.svg', 'image/svg+xml')
+        if path == '/docs.css':
+            return self._send_file('docs.css', 'text/css; charset=utf-8')
+        if path == '/dev-docs' or path.startswith('/dev-docs/'):
+            slug = 'overview' if path == '/dev-docs' else path.removeprefix('/dev-docs/')
+            try:
+                wire = render_dev_doc(slug).encode()
+            except (ValueError, OSError):
+                return self._send_json(404, {'error': 'developer document not found'})
+            self._headers(200, 'text/html; charset=utf-8', len(wire))
+            self.wfile.write(wire)
+            return
         try:
             if path == '/api/health':
                 return self._send_json(200, {'app': 'chaos-security-benchmark', 'status': 'ready'})
