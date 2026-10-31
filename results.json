@@ -1,0 +1,189 @@
+{
+  "kind": "synthetic_simulation",
+  "target": "deliberately vulnerable path resolver",
+  "oracle_controls": {
+    "passed": 5,
+    "total": 5,
+    "all_passed": true
+  },
+  "off": {
+    "calls": 9,
+    "violations": 0,
+    "seeds_with_finding": 0,
+    "selected_requests": {
+      "17": "docs/guide.txt",
+      "29": "docs/guide.txt",
+      "43": "docs/guide.txt"
+    },
+    "rows": [
+      {
+        "seed": 17,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 17,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 17,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 29,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 29,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 29,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 43,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 43,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 43,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      }
+    ]
+  },
+  "on": {
+    "calls": 9,
+    "violations": 3,
+    "seeds_with_finding": 3,
+    "selected_requests": {
+      "17": "docs/../../guide.txt",
+      "29": "docs/../../guide.txt",
+      "43": "docs/../../guide.txt"
+    },
+    "rows": [
+      {
+        "seed": 17,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 17,
+        "request": "docs/../guide.txt",
+        "chaos_samples": [
+          0.942804591,
+          0.215696378
+        ],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 17,
+        "request": "docs/../../guide.txt",
+        "chaos_samples": [
+          0.783630252,
+          0.678215522
+        ],
+        "accepted": true,
+        "outside_root": true
+      },
+      {
+        "seed": 29,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 29,
+        "request": "docs/guide.txt",
+        "chaos_samples": [
+          0.13876282,
+          0.4780308
+        ],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 29,
+        "request": "docs/../../guide.txt",
+        "chaos_samples": [
+          0.507155771,
+          0.99979518
+        ],
+        "accepted": true,
+        "outside_root": true
+      },
+      {
+        "seed": 43,
+        "request": "docs/guide.txt",
+        "chaos_samples": [],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 43,
+        "request": "docs/../guide.txt",
+        "chaos_samples": [
+          0.857929028,
+          0.487547245
+        ],
+        "accepted": true,
+        "outside_root": false
+      },
+      {
+        "seed": 43,
+        "request": "docs/../../guide.txt",
+        "chaos_samples": [
+          0.636483817,
+          0.925488671
+        ],
+        "accepted": true,
+        "outside_root": true
+      }
+    ]
+  },
+  "reproductions": {
+    "17": true,
+    "29": true,
+    "43": true
+  },
+  "gates": {
+    "oracle_5_of_5": true,
+    "off_zero_findings": true,
+    "on_all_three_seeds": true,
+    "reproduces_without_chaos": true,
+    "matched_call_budget": true
+  }
+}
