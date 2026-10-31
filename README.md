@@ -1,6 +1,6 @@
 # Edge-of-chaos security discovery simulation
 
-Expanded experiment: see [EXPANDED-REPORT.md](EXPANDED-REPORT.md) for eight planted flaws, eight clean counterparts, five seeds and320,000 target calls. Run `python3 run_expanded.py` and `python3 run_workflows.py` for those suites. Both arms found all eight flaws; chaos benefit was mixed.
+Expanded experiment: see [EXPANDED-REPORT.md](EXPANDED-REPORT.md) for eight planted flaws, eight clean counterparts, five seeds and 320,000 target calls. Run `python3 run_expanded.py` and `python3 run_workflows.py` for those suites. Both arms found all eight flaws; chaos benefit was mixed.
 
 Run with `python3 run_demo.py` (Python standard library only). The script writes `results.json` beside itself.
 
