@@ -3,8 +3,9 @@
 import json
 import sys
 from job_service import JobService
+from brand import APP_ID
 
-NAME = 'chaos-security-benchmark'
+NAME = APP_ID
 VERSION = '1.0.0'
 MODERN = '2026-07-28'
 LEGACY = '2025-11-25'

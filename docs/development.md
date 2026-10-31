@@ -2,7 +2,7 @@
 
 ## Run locally
 
-This is a Python 3.10+ project on Linux/Unix. The GUI, runner and MCP server use the standard library. Start the GUI with `python3 launch_gui.py`, or launch **Chaos Security Benchmark** from the app menu. The server binds to `127.0.0.1:8765` and opens in a browser. The GUI stays available while the local server process runs.
+This is a Python 3.10+ project on Linux/Unix. The GUI, runner and MCP server use the standard library. Start the GUI with `python3 launch_gui.py`, or launch **Atom Code Bug Finder Harness** from the app menu. The server binds to `127.0.0.1:8765` and opens in a browser. The GUI stays available while the local server process runs.
 
 For a direct benchmark without the GUI:
 

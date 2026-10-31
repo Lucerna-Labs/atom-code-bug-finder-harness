@@ -1,8 +1,10 @@
 # GUI and AI interface result
 
+Current product name: **Atom Code Bug Finder Harness**, by Lucerna Labs, a division of Lucerna Media. The project folder and source paths in this historical report retain their original internal names.
+
 The standalone project has a browser GUI, an installed desktop application menu entry, a local JSON API, and a stdio MCP server for AI agents. They use the same saved configuration catalog and run receipts. The runner continues to execute the chosen target and checker through the existing JSON-line process contract.
 
-Open **Chaos Security Benchmark** from the desktop application menu, or run `python3 launch_gui.py`. The launcher starts the server on `127.0.0.1:8765` and opens the browser. The page can copy the example into its config editor, save a new validated config, run it, stop it, and inspect status, scores, gates and witness inputs. The installed desktop entry and icon are in `packaging/` and `web/icon.svg`; the installed entry passed `desktop-file-validate` and launched through `gtk-launch`.
+Open **Atom Code Bug Finder Harness** from the desktop application menu, or run `python3 launch_gui.py`. The launcher starts the server on `127.0.0.1:8765` and opens the browser. The page can copy the example into its config editor, save a new validated config, run it, stop it, and inspect status, scores, gates and witness inputs. The installed desktop entry and icon are in `packaging/` and `web/icon.svg`; the installed entry passed `desktop-file-validate` and launched through `gtk-launch`.
 
 The AI interface is `mcp_server.py`. It exposes seven MCP tools: `list_configs`, `get_config`, `start_run`, `get_run`, `list_runs`, `read_receipt`, and `cancel_run`. It serves the current `2026-07-28` lifecycle and legacy `2025-11-25` initialization. The official MCP Python client 2.3.0 connected in both modes, listed all seven tools, and in modern mode started the example, polled it to success, and read 10 saved witness replays. The production server itself uses only Python standard-library modules.
 

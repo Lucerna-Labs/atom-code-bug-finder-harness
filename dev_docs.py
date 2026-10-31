@@ -8,6 +8,7 @@ DOCS = ROOT / 'docs'
 
 PAGES = (
     ('overview', 'Overview', 'What the benchmark is and what its results mean'),
+    ('branding', 'Name and attribution', 'The product name and maker hierarchy'),
     ('architecture', 'Architecture', 'Code ownership and run data flow'),
     ('development', 'Development guide', 'Run, extend and verify the project'),
     ('experiment', 'Experiment method', 'Controls, arms, gates and evidence'),
@@ -23,7 +24,8 @@ def catalog():
 
 def inline(text):
     escaped = html.escape(text)
-    return re.sub(r'`([^`]+)`', r'<code>\1</code>', escaped)
+    escaped = re.sub(r'`([^`]+)`', r'<code>\1</code>', escaped)
+    return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', escaped)
 
 
 def markdown_to_html(source):

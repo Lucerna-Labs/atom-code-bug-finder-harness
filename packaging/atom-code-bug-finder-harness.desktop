@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Chaos Security Benchmark
-Comment=Run matched plain and chaos checks on chosen code
+Name=Atom Code Bug Finder Harness
+Comment=By Lucerna Labs — A Division of Lucerna Media
 Exec=/usr/bin/python3 /home/jesse/Desktop/Projects/chaos-security-benchmark/launch_gui.py
 Icon=/home/jesse/Desktop/Projects/chaos-security-benchmark/web/icon.svg
 Terminal=false

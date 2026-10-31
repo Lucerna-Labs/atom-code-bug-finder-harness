@@ -10,6 +10,7 @@ from urllib.parse import unquote, urlsplit
 from job_service import JobService, PROJECTS, ROOT
 from portable_projects import MAX_ARCHIVE
 from dev_docs import render as render_dev_doc
+from brand import APP_ID, PRODUCT_NAME
 
 WEB = ROOT / 'web'
 
@@ -74,7 +75,7 @@ class Handler(BaseHTTPRequestHandler):
             return
         try:
             if path == '/api/health':
-                return self._send_json(200, {'app': 'chaos-security-benchmark', 'status': 'ready'})
+                return self._send_json(200, {'app': APP_ID, 'name': PRODUCT_NAME, 'status': 'ready'})
             if path == '/api/configs':
                 return self._send_json(200, {'configs': self.service.list_configs()})
             if path == '/api/projects':
@@ -183,7 +184,7 @@ def main():
         parser.error('invalid port')
     Handler.service = JobService()
     server = ThreadingHTTPServer(('127.0.0.1', args.port), Handler)
-    print(f'Chaos Security Benchmark: http://127.0.0.1:{server.server_port}', flush=True)
+    print(f'{PRODUCT_NAME}: http://127.0.0.1:{server.server_port}', flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

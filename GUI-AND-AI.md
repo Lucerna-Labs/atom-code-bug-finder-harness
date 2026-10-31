@@ -4,7 +4,7 @@ The GUI and MCP tools share the saved configuration catalog and run receipts in 
 
 ## Open the GUI
 
-Use the **Chaos Security Benchmark** entry in the desktop application menu. Its launcher starts the server if needed and opens `http://127.0.0.1:8765` in your browser. To start it from a terminal:
+Use the **Atom Code Bug Finder Harness** entry in the desktop application menu. Its launcher starts the server if needed and opens `http://127.0.0.1:8765` in your browser. To start it from a terminal:
 
 ```sh
 python3 /home/jesse/Desktop/Projects/chaos-security-benchmark/launch_gui.py
@@ -23,7 +23,7 @@ Register this stdio MCP server in an MCP-capable AI host:
 ```json
 {
   "mcpServers": {
-    "chaos-security-benchmark": {
+    "atom-code-bug-finder-harness": {
       "command": "/usr/bin/python3",
       "args": ["/home/jesse/Desktop/Projects/chaos-security-benchmark/mcp_server.py"]
     }

@@ -9,6 +9,7 @@ import urllib.error
 import urllib.request
 import webbrowser
 from pathlib import Path
+from brand import APP_ID
 
 ROOT = Path(__file__).resolve().parent
 URL = 'http://127.0.0.1:8765'
@@ -17,7 +18,7 @@ URL = 'http://127.0.0.1:8765'
 def healthy():
     try:
         with urllib.request.urlopen(URL + '/api/health', timeout=0.5) as response:
-            return json.load(response).get('app') == 'chaos-security-benchmark'
+            return json.load(response).get('app') == APP_ID
     except (OSError, ValueError):
         return False
 

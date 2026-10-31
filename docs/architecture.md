@@ -9,7 +9,7 @@
 - `web_app.py` serves the loopback HTTP API and static browser assets in `web/`. The GUI creates configs, starts/stops runs and reads saved results.
 - `mcp_server.py` exposes saved configs and runs as stdio MCP tools. It uses `JobService`, so an AI sees the same catalog and receipts as the GUI.
 - `portable_projects.py` extracts validated ZIP entries into `projects/<id>/files/`, records the imported file hashes, associates configs and builds export bundles.
-- `launch_gui.py` starts or reuses the local server; `packaging/chaos-security-benchmark.desktop` is the installed app-menu entry.
+- `launch_gui.py` starts or reuses the local server; `packaging/atom-code-bug-finder-harness.desktop` is the installed app-menu entry.
 
 ## How one run moves through the system
 

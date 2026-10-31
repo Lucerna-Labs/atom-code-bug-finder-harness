@@ -2,7 +2,7 @@
 
 ## What this project is
 
-Chaos Security Benchmark is a local experiment runner. It sends generated JSON requests to a chosen program, sends that program's result to an independent checker, and compares two matched input-selection arms: ordinary seeded selection and the same selection with a small deterministic chaos-map perturbation. A checker-reported property violation becomes a saved witness only after the runner repeats it through fresh processes.
+Atom Code Bug Finder Harness is a local experiment runner by Lucerna Labs, a division of Lucerna Media. It sends generated JSON requests to a chosen program, sends that program's result to an independent checker, and compares two matched input-selection arms: ordinary seeded selection and the same selection with a small deterministic chaos-map perturbation. A checker-reported property violation becomes a saved witness only after the runner repeats it through fresh processes.
 
 The same runner is available through a browser GUI, a command-line entry point, and seven stdio MCP tools for AI agents. The GUI can import an app ZIP into a managed project snapshot so runs use the copied files. Export carries those imported files and associated configurations to another installation of this benchmark.
 
@@ -18,6 +18,7 @@ Those results establish operational behavior for the tested examples. They do no
 
 ## Read next
 
+- Name and attribution: the official product identity and internal path decision.
 - Architecture: ownership of each source file and the complete run path.
 - Development guide: run, test and extend the project.
 - Experiment method: arms, controls, gates and receipts.

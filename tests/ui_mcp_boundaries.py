@@ -36,10 +36,15 @@ def main():
     config_id='uitest'+token_hex(4)
     try:
         announcement=ui.stdout.readline().strip()
-        assert announcement.startswith('Chaos Security Benchmark: http://127.0.0.1:'),announcement
+        assert announcement.startswith('Atom Code Bug Finder Harness: http://127.0.0.1:'),announcement
         base=announcement.split(': ',1)[1]
         status,html=web_call(base,'/')
         assert status==200 and b'Choose a configuration' in html
+        assert b'Atom Code Bug Finder Harness' in html
+        assert b'By Lucerna Labs' in html and b'A Division of Lucerna Media' in html
+        health=json.loads(web_call(base,'/api/health')[1])
+        assert health['app']=='atom-code-bug-finder-harness'
+        assert health['name']=='Atom Code Bug Finder Harness'
         status,js=web_call(base,'/app.js')
         assert status==200 and b'startRun' in js
         try:
@@ -78,6 +83,7 @@ def main():
                        'io.modelcontextprotocol/clientCapabilities':{}}}
         discovered=mcp_call(modern,1,'server/discover',meta)
         assert '2026-07-28' in discovered['supportedVersions']
+        assert discovered['_meta']['io.modelcontextprotocol/serverInfo']['name']=='atom-code-bug-finder-harness'
         tools=mcp_call(modern,2,'tools/list',meta)['tools']
         assert {t['name'] for t in tools}>={'list_configs','start_run','read_receipt'}
         configs=mcp_call(modern,3,'tools/call',{**meta,'name':'list_configs','arguments':{}})

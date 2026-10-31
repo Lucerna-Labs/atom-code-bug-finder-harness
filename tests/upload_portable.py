@@ -56,7 +56,7 @@ def main():
                             cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
     try:
         announcement=server.stdout.readline().strip()
-        assert announcement.startswith('Chaos Security Benchmark: http://127.0.0.1:'),announcement
+        assert announcement.startswith('Atom Code Bug Finder Harness: http://127.0.0.1:'),announcement
         base=announcement.split(': ',1)[1]
         with tempfile.TemporaryDirectory(prefix='app-source-') as tmp:
             source=Path(tmp)/'original';source.mkdir()
