@@ -2,10 +2,13 @@
 """Local browser UI and JSON API for saved benchmark configs and runs."""
 import argparse
 import json
+import tempfile
+import zipfile
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlsplit
-from job_service import JobService, ROOT
+from urllib.parse import unquote, urlsplit
+from job_service import JobService, PROJECTS, ROOT
+from portable_projects import MAX_ARCHIVE
 
 WEB = ROOT / 'web'
 
@@ -62,6 +65,33 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send_json(200, {'app': 'chaos-security-benchmark', 'status': 'ready'})
             if path == '/api/configs':
                 return self._send_json(200, {'configs': self.service.list_configs()})
+            if path == '/api/projects':
+                return self._send_json(200, {'projects': self.service.list_projects()})
+            if path.startswith('/api/projects/'):
+                parts = path.split('/')
+                if len(parts) == 4:
+                    return self._send_json(200, self.service.get_project(parts[3]))
+                if len(parts) == 5 and parts[4] == 'export':
+                    if not self._origin_ok() or self.headers.get('X-Chaos-Local') != '1':
+                        return self._send_json(403, {'error': 'local request required'})
+                    try:
+                        archive = self.service.export_project(parts[3])
+                    except ValueError as error:
+                        return self._send_json(409, {'error': str(error)})
+                    try:
+                        size = archive.stat().st_size
+                        self.send_response(200)
+                        self.send_header('Content-Type', 'application/zip')
+                        self.send_header('Content-Disposition', f'attachment; filename="{parts[3]}.chaos.zip"')
+                        self.send_header('Content-Length', str(size))
+                        self.send_header('X-Content-Type-Options', 'nosniff')
+                        self.end_headers()
+                        with archive.open('rb') as source:
+                            while chunk := source.read(65536):
+                                self.wfile.write(chunk)
+                    finally:
+                        archive.unlink(missing_ok=True)
+                    return
             if path.startswith('/api/configs/'):
                 return self._send_json(200, self.service.get_config(path.removeprefix('/api/configs/')))
             if path == '/api/runs':
@@ -74,13 +104,16 @@ class Handler(BaseHTTPRequestHandler):
                     return self._send_json(200, self.service.receipt(parts[3]))
                 if len(parts) == 5 and parts[4] == 'log':
                     return self._send_json(200, {'log': self.service.log_tail(parts[3])})
-        except (ValueError, OSError, json.JSONDecodeError) as error:
+        except (ValueError, OSError, json.JSONDecodeError, zipfile.BadZipFile) as error:
             return self._send_json(404, {'error': str(error)})
         self._send_json(404, {'error': 'not found'})
 
     def do_POST(self):
         if not self._host_ok() or not self._origin_ok() or self.headers.get('X-Chaos-Local') != '1':
             return self._send_json(403, {'error': 'local request required'})
+        path = urlsplit(self.path).path
+        if path == '/api/projects/import':
+            return self._import_zip()
         if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
             return self._send_json(415, {'error': 'JSON required'})
         try:
@@ -90,7 +123,6 @@ class Handler(BaseHTTPRequestHandler):
             payload = json.loads(self.rfile.read(length))
             if not isinstance(payload, dict):
                 raise ValueError('request must be a JSON object')
-            path = urlsplit(self.path).path
             if path == '/api/configs':
                 return self._send_json(201, self.service.create_config(payload.get('id'), payload.get('config')))
             if path == '/api/runs':
@@ -101,6 +133,34 @@ class Handler(BaseHTTPRequestHandler):
         except (ValueError, OSError, json.JSONDecodeError, KeyError) as error:
             return self._send_json(400, {'error': str(error)})
         self._send_json(404, {'error': 'not found'})
+
+    def _import_zip(self):
+        if self.headers.get('Content-Type', '').split(';')[0] != 'application/zip':
+            return self._send_json(415, {'error': 'ZIP file required'})
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+            if not 0 < length <= MAX_ARCHIVE:
+                raise ValueError('ZIP upload must be at most 100 MiB')
+            identifier = self.headers.get('X-Chaos-Project-Id')
+            name = unquote(self.headers.get('X-Chaos-Project-Name', identifier or ''))
+            PROJECTS.mkdir(mode=0o700, exist_ok=True)
+            with tempfile.NamedTemporaryFile(prefix='.upload-', suffix='.zip', dir=PROJECTS, delete=False) as file:
+                uploaded = Path(file.name)
+                remaining = length
+                while remaining:
+                    chunk = self.rfile.read(min(65536, remaining))
+                    if not chunk:
+                        raise ValueError('incomplete ZIP upload')
+                    file.write(chunk)
+                    remaining -= len(chunk)
+            if not zipfile.is_zipfile(uploaded):
+                raise ValueError('uploaded content is not ZIP')
+            return self._send_json(201, self.service.import_project(uploaded, identifier, name))
+        except (ValueError, OSError, zipfile.BadZipFile, RuntimeError) as error:
+            return self._send_json(400, {'error': str(error)})
+        finally:
+            if 'uploaded' in locals():
+                uploaded.unlink(missing_ok=True)
 
 
 def main():

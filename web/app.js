@@ -19,6 +19,63 @@ async function loadConfigs() {
   if (configs.some(c=>c.id===chosen)) $('config-select').value=chosen;
   showConfig();
 }
+async function loadProjects() {
+  const projects=(await api('/api/projects')).projects;
+  const list=$('project-list');list.replaceChildren();
+  if (!projects.length) {list.append(node('p','empty','No app copies imported yet.'));return;}
+  projects.forEach(project=>{
+    const item=node('div','project-item');
+    item.append(node('strong','',project.name));
+    item.append(node('p','muted',`${project.id} · ${project.file_count} files · ${(project.expanded_bytes/1048576).toFixed(2)} MiB · ${project.config_ids.length?`${project.config_ids.length} saved config`:'configuration needed'}`));
+    const controls=node('div','button-row');
+    const configure=node('button','secondary','Configure');configure.type='button';
+    configure.addEventListener('click',()=>guarded(()=>configureProject(project.id))());
+    const download=node('button','secondary','Download bundle');download.type='button';
+    download.addEventListener('click',()=>guarded(()=>downloadProject(project.id))());
+    controls.append(configure,download);item.append(controls);list.append(item);
+  });
+}
+async function configureProject(id) {
+  const project=await api(`/api/projects/${id}`);
+  if (project.config_ids.length) {
+    await loadConfigs();$('config-select').value=project.config_ids[0];showConfig();
+    notice(`Selected ${project.config_ids[0]}. You can run this imported copy.`);
+    return;
+  }
+  const template=(await api('/api/configs/example')).config;
+  template.name=`${project.name} check`;
+  template.cwd=project.path;
+  template.source_paths=project.files.filter(f=>f.path.endsWith('.py')).slice(0,50).map(f=>`${project.path}/${f.path}`);
+  $('new-id').value=id;
+  $('config-editor').value=JSON.stringify(template,null,2);
+  $('config-editor').focus();
+  notice('App copy selected. Set the target and checker commands, input grammar, controls, and source files, then save.');
+}
+async function importProject() {
+  const file=$('project-file').files[0];
+  if (!file) throw new Error('Choose a ZIP file.');
+  if (file.size>100*1024*1024) throw new Error('ZIP is larger than 100 MiB.');
+  const id=$('project-id').value.trim();
+  const name=$('project-name').value.trim()||id;
+  const response=await fetch('/api/projects/import',{method:'POST',body:file,headers:{
+    'Content-Type':'application/zip','X-Chaos-Local':'1','X-Chaos-Project-Id':id,
+    'X-Chaos-Project-Name':encodeURIComponent(name)}});
+  const result=await response.json();
+  if (!response.ok) throw new Error(result.error||`HTTP ${response.status}`);
+  await loadProjects();await loadConfigs();
+  if (result.config_ids.length) {$('config-select').value=result.config_ids[0];showConfig();}
+  $('project-file').value='';
+  notice(`Imported ${name} as a local copy. ${result.config_ids.length?'Runnable configuration created.':'Add a target/checker configuration to run it.'}`);
+}
+async function downloadProject(id) {
+  const response=await fetch(`/api/projects/${id}/export`,{headers:{'X-Chaos-Local':'1'}});
+  if (!response.ok) {const error=await response.json();throw new Error(error.error||`HTTP ${response.status}`);}
+  const blob=await response.blob();const url=URL.createObjectURL(blob);
+  const anchor=document.createElement('a');anchor.href=url;anchor.download=`${id}.chaos.zip`;
+  document.body.append(anchor);anchor.click();anchor.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),30000);
+  notice(`Downloaded ${id}.chaos.zip.`);
+}
 function showConfig() {
   const c=configs.find(x=>x.id===$('config-select').value);
   $('config-meta').textContent=c ? `${c.id} · ${c.path}${c.valid?'':` · ${c.error}`}` : '';
@@ -99,5 +156,6 @@ $('copy-button').addEventListener('click',guarded(copyConfig));
 $('save-button').addEventListener('click',guarded(saveConfig));
 $('refresh-button').addEventListener('click',guarded(refresh));
 $('cancel-button').addEventListener('click',guarded(cancelRun));
-guarded(async()=>{await loadConfigs();await loadRuns();})().then(()=>{});
+$('import-button').addEventListener('click',guarded(importProject));
+guarded(async()=>{await loadConfigs();await loadProjects();await loadRuns();})().then(()=>{});
 setInterval(()=>{if(currentRun)showRun(currentRun).catch(()=>{});loadRuns().catch(()=>{});},1500);

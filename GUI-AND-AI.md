@@ -12,6 +12,8 @@ python3 /home/jesse/Desktop/Projects/chaos-security-benchmark/launch_gui.py
 
 The page lets you choose a saved config, run it, stop it, inspect scores/gates/witness inputs and recent runs, or save a new JSON config. The example is ready to run. For another codebase, its target wrapper and checker still need to follow the JSON-line contract in [EXTERNAL-CODE.md](EXTERNAL-CODE.md). Copy the example in the editor, set `cwd`, `source_paths`, commands, grammar and labeled controls, then save under a new ID.
 
+You can also upload a ZIP of an app into the GUI. [PORTABLE-UPLOAD.md](PORTABLE-UPLOAD.md) explains the optional manifest for automatic configuration and the export bundle for moving the copied app and its saved checks to another installation. AI agents can run imported configurations through the same MCP tools after the upload.
+
 The web server binds only to `127.0.0.1`. Mutating API calls require JSON, a same-origin request, and the `X-Chaos-Local: 1` header. This is a local user tool, not an authentication boundary against other software already running as your user. A configured target runs with your account permissions, so use a checkout intended for testing. Runs, logs and receipts stay in `runs/`. The server permits one active run at a time across the GUI and MCP processes.
 
 ## Connect an AI agent

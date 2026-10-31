@@ -62,11 +62,27 @@
 
     <section class="grid lower">
       <div class="panel">
-        <div class="panel-heading"><span class="number">04</span><h2>Recent runs</h2></div>
+        <div class="panel-heading"><span class="number">04</span><h2>Upload an app copy</h2></div>
+        <p class="muted">Import a ZIP of your project. The copy lives here, so test runs no longer read the original folder. Include <code>chaos-project.json</code> to create a runnable configuration automatically.</p>
+        <label for="project-id">PROJECT ID</label><input id="project-id" placeholder="my-app" pattern="[a-z][a-z0-9_-]*" maxlength="64">
+        <label for="project-name">DISPLAY NAME</label><input id="project-name" placeholder="My App" maxlength="100">
+        <label for="project-file">APP ZIP</label><input id="project-file" type="file" accept=".zip,application/zip">
+        <div class="button-row"><button id="import-button" class="primary">Import app copy <span>↗</span></button></div>
+        <p class="hint">ZIP limit: 100 MiB compressed, 500 MiB expanded. Uploaded code runs only when you start a saved configuration.</p>
+      </div>
+      <div class="panel">
+        <div class="panel-heading"><span class="number">05</span><h2>Imported apps</h2></div>
+        <div id="project-list" class="project-list"></div>
+      </div>
+    </section>
+
+    <section class="grid lower">
+      <div class="panel">
+        <div class="panel-heading"><span class="number">06</span><h2>Recent runs</h2></div>
         <div id="run-list" class="run-list"></div>
       </div>
       <div class="panel">
-        <div class="panel-heading"><span class="number">05</span><h2>Add a configuration</h2></div>
+        <div class="panel-heading"><span class="number">07</span><h2>Add a configuration</h2></div>
         <p class="muted">Paste a JSON config for your chosen program. A wrapper and checker can live in that program’s project. Copy the example to get started.</p>
         <label for="new-id">CONFIG ID</label><input id="new-id" placeholder="my-project-check" pattern="[a-z][a-z0-9_-]*" maxlength="64">
         <label for="config-editor">CONFIG JSON</label><textarea id="config-editor" spellcheck="false" placeholder="Copy the example or paste your config here"></textarea>

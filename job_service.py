@@ -5,6 +5,7 @@ import json
 import os
 import re
 import signal
+import shutil
 import subprocess
 import sys
 import threading
@@ -12,10 +13,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from secrets import token_hex
 from run_external import load_config
+from portable_projects import PortableProjects, inside
 
 ROOT = Path(__file__).resolve().parent
 CONFIGS = ROOT / 'configs'
 RUNS = ROOT / 'runs'
+PROJECTS = ROOT / 'projects'
 EXAMPLE = ROOT / 'examples/ordinary_code/config.json'
 SLUG = re.compile(r'^[a-z][a-z0-9_-]{0,63}$')
 
@@ -38,6 +41,7 @@ class JobService:
         os.umask(0o077)
         CONFIGS.mkdir(mode=0o700, exist_ok=True)
         RUNS.mkdir(mode=0o700, exist_ok=True)
+        self.projects = PortableProjects(PROJECTS)
         self.active_lock = (RUNS / 'active.lock').open('a+')
         os.chmod(RUNS / 'active.lock', 0o600)
         self.lock = threading.RLock()
@@ -90,7 +94,44 @@ class JobService:
                 temporary.replace(path)
             finally:
                 temporary.unlink(missing_ok=True)
-        return self.get_config(identifier)
+        saved = self.get_config(identifier)
+        validated = load_config(path)
+        for project in self.projects.list():
+            base = (PROJECTS / project['id'] / 'files').resolve()
+            if inside(Path(validated['cwd']), base) and all(inside(source, base) for source in validated['source_paths']):
+                self.projects.attach_config(project['id'], identifier)
+        return saved
+
+    def list_projects(self):
+        return self.projects.list()
+
+    def get_project(self, identifier):
+        return {**self.projects.get(identifier), 'path': str(PROJECTS / identifier / 'files')}
+
+    def import_project(self, archive, identifier, name):
+        if (CONFIGS / (str(identifier) + '.json')).exists():
+            raise ValueError('a config with this id already exists')
+        with self.lock:
+            metadata, configs = self.projects.import_zip(archive, identifier, name)
+            created = []
+            try:
+                for index, config in enumerate(configs):
+                    config_id = identifier if index == 0 else f'{identifier}-check{index+1}'
+                    self.create_config(config_id, config)
+                    created.append(config_id)
+            except Exception:
+                for config_id in created:
+                    (CONFIGS / (config_id + '.json')).unlink(missing_ok=True)
+                shutil.rmtree(PROJECTS / identifier)
+                raise
+            return self.get_project(identifier)
+
+    def export_project(self, identifier):
+        metadata = self.get_project(identifier)
+        configs = []
+        for config_id in metadata['config_ids']:
+            configs.append(load_config(self.config_path(config_id)))
+        return self.projects.export_zip(identifier, configs)
 
     def status_path(self, run_id):
         if not isinstance(run_id, str) or not re.fullmatch(r'[0-9a-f]{20}', run_id):
